@@ -5,7 +5,7 @@
     "title" : "CEO",
     "email" : "carlin.dornbusch@americancsm.com",
     "phone" : "(303) 956-9106",
-    "submissionDate" : 1513197265654,
+    "submissionDate" : 1513279108074,
     "companyName" : "American Cyber Security Manageemnt Inc.",
     "companyAddress" : "2356 Clermont St., Denver, CO 80207"
   },
@@ -26,6 +26,6 @@
     "isPrivacyShieldCertified" : true,
     "certifications" : [ "PCI", "HIPAA", "ISO" ],
     "dataClassificationLevels" : 1,
-    "acsmComplexityValue" : 0
+    "acsmComplexityValue" : 1
   }
 }

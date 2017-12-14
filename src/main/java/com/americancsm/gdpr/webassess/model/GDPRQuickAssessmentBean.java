@@ -19,7 +19,7 @@ public @Data class GDPRQuickAssessmentBean implements Serializable {
 		sb.append("Requested by:\n ");
 		sb.append(requestor.formatForDocument());
 		sb.append(LINE_END);
-		sb.append("Assessment Information:\n ");
+		sb.append("Assessment Information: \n ");
 		sb.append(assessmentInfo.formatForDocument());
 		
 		return sb.toString();
