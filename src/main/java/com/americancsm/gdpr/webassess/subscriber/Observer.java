@@ -7,4 +7,6 @@ public interface Observer {
 	String update(GDPRQuickAssessmentBean assessment);
 
 	void setObservable(Observable observable);
+	
+	void unSubscribe();
 }

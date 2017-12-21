@@ -43,11 +43,6 @@ public class TopicSubscriber implements Observer {
 		return publishResult.getMessageId();
 	}
 	
-	@Override
-	public void setObservable(Observable observable) {
-		this.publisher = observable;
-	}
-	
 	private void initialize() {
 		// TODO: Update to make use of temporary profiles
 		topicARN  = System.getenv(TOPIC_ARN);
@@ -56,12 +51,16 @@ public class TopicSubscriber implements Observer {
 				.withRegion(Regions.US_WEST_2)
                 .withCredentials(new EnvironmentVariableCredentialsProvider())
                 // .withCredentials(new ProfileCredentialsProvider(credentialsProviderProfile))
-                // .withCredentials(new ClasspathPropertiesFileCredentialsProvider())
                 .build();
-		// LOGGER.log("Exiting TopicSubscriber.initialize");
 	}
 	
-	public void unsubscribe() {
+	@Override
+	public void setObservable(Observable observable) {
+		this.publisher = observable;
+	}
+	
+	@Override
+	public void unSubscribe() {
 		publisher.removeObserver(this);
 	}
 }
