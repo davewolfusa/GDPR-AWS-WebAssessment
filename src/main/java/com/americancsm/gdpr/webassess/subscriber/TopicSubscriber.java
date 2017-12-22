@@ -39,13 +39,18 @@ public class TopicSubscriber implements Observer {
 		PublishRequest publishRequest = new PublishRequest(topicARN, msg);
 		PublishResult publishResult = snsClient.publish(publishRequest);
 		LOGGER.log("GDPR Quick Assessment sent to SNS topic: " + topicARN + 
-				   " with message ID = " + publishResult.getMessageId());
+				   " with message ID = " + publishResult.getMessageId() + "\n");
 		return publishResult.getMessageId();
 	}
 	
 	private void initialize() {
-		// TODO: Update to make use of temporary profiles
 		topicARN  = System.getenv(TOPIC_ARN);
+		if (this.topicARN == null) {
+			throw new IllegalStateException("Unable to get " + TOPIC_ARN +
+					                        " from the environment!");
+		}
+        
+		// TODO: Update to make use of temporary profiles
 		snsClient = 
 			AmazonSNSClientBuilder.standard()
 				.withRegion(Regions.US_WEST_2)

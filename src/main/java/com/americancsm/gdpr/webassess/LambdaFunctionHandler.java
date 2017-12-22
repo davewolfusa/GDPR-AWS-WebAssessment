@@ -24,6 +24,8 @@ public class LambdaFunctionHandler implements RequestHandler<GDPRQuickAssessment
 
 		// Lazily Initialize Function
 		if (!isInitialized) {
+        		contextLocator = AWSContextLocator.getInstance();
+        		contextLocator.setContext(context);
 			initialize();
 		}
 		contextLocator.setContext(context);
@@ -43,28 +45,23 @@ public class LambdaFunctionHandler implements RequestHandler<GDPRQuickAssessment
 	}
 	
 	private void initialize() {
-		boolean localIsInitialized = isInitialized;
-		if (!localIsInitialized) {
 			synchronized (mutex) {
-				localIsInitialized = isInitialized;
-				if (!localIsInitialized) {
-                		contextLocator = AWSContextLocator.getInstance();
+			if (!isInitialized) {
                 	
-                		// Construct Publish/Subscribe objects
-                		publisher = new QuickAssessmentPublisher();
-                		// Add Observer / Subscriber objects to Observable / Publisher.
+            		// Construct Publish/Subscribe objects
+            		publisher = new QuickAssessmentPublisher();
+            		// Add Observer / Subscriber objects to Observable / Publisher.
                 		
-                		// Topic Subscriber
-                		TopicSubscriber topicSubscriber = new TopicSubscriber();
-                		topicSubscriber.setObservable(publisher);
-                		publisher.addObserver(topicSubscriber);
+            		// Topic Subscriber
+            		TopicSubscriber topicSubscriber = new TopicSubscriber();
+            		topicSubscriber.setObservable(publisher);
+            		publisher.addObserver(topicSubscriber);
                 		
-                		// S3 Bucket Subscriber
-                		S3Subscriber s3Subscriber = new S3Subscriber();
-                		s3Subscriber.setObservable(publisher);
-                		publisher.addObserver(s3Subscriber);
-                		isInitialized = true;
-				}
+            		// S3 Bucket Subscriber
+            		S3Subscriber s3Subscriber = new S3Subscriber();
+            		s3Subscriber.setObservable(publisher);
+            		publisher.addObserver(s3Subscriber);
+            		isInitialized = true;
 			}
 		}
 	}
