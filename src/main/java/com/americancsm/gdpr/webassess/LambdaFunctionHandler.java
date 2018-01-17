@@ -4,7 +4,7 @@ import com.amazonaws.services.lambda.runtime.Context;
 import com.amazonaws.services.lambda.runtime.RequestHandler;
 import com.americancsm.gdpr.webassess.model.GDPRAssessmentRequest;
 import com.americancsm.gdpr.webassess.model.GDPRAssessmentResponse;
-import com.americancsm.gdpr.webassess.model.GDPRQuickAssessmentValidator;
+import com.americancsm.gdpr.webassess.model.GDPRAssessmentValidator;
 import com.americancsm.gdpr.webassess.subscriber.QuickAssessmentPublisher;
 import com.americancsm.gdpr.webassess.subscriber.S3Subscriber;
 import com.americancsm.gdpr.webassess.subscriber.TopicSubscriber;
@@ -32,7 +32,7 @@ public class LambdaFunctionHandler implements RequestHandler<GDPRAssessmentReque
 		contextLocator.setContext(context);
 		
 		// Validate GDPR Request
-		GDPRQuickAssessmentValidator validator = new GDPRQuickAssessmentValidator();
+		GDPRAssessmentValidator validator = new GDPRAssessmentValidator();
 		boolean isValid = validator.validate(assessmentBean);
 		
 		if (isValid) {

@@ -148,30 +148,4 @@ public @Data class GDPRAssessmentInfo implements Serializable {
 		}
 		return result;
 	}
-	/*
-	private static final String INTERNAL_USE = "Internal Policy=All data destroyed upon use.";
-	private static final String DISCLAIMER = "Disclaimer\n" + 
-			"This GDPR Quick Assessment is intended to assist organizations with assessing their GDPR compliance " +
-			"complexity.  This GDPR Quick Assessment is provided for general public informational purposes only. " +
-			"Any results, scoring or recommendations produced by the GDPR Quick Assessment should not be relied " + 
-			"upon to determine how GDPR applies to an organization or an organization’s compliance with GDPR, and " +
-			"they do not constitute legal advice, certifications or guarantees regarding GDPR compliance.  " +
-			"Instead, we hope the GDPR Detailed Assessment identifies technologies and additional steps that " + 
-			"organizations can implement to simplify their GDPR compliance efforts.  The application of GDPR is " +
-			"highly fact-specific. We encourage all organizations using this GDPR Quick Assessment to work with a " +
-			"legally qualified professional to discuss GDPR, how it applies specifically to their organization, " + 
-			"and how best to ensure compliance.\n" + 
-			"AMERICAN CYBER SECURITY MANAGEMENT MAKES NO WARRANTIES, EXPRESS, IMPLIED, OR STATUTORY, AS TO THE " +
-			"INFORMATION IN THIS GDPR DETAILED ASSESSMENT. American CyberSecurity Management disclaims any " + 
-			"conditions, express or implied, or other terms that use of the  products or services will ensure " + 
-			"the organization’s compliance with the GDPR.  This GDPR Quick Assessment is provided \"as-is\".  " +
-			"Information and recommendations expressed in this GDPR Detailed Assessment may change without notice.\n" + 
-			"This GDPR Detailed Assessment does not provide the user with any legal rights to any intellectual " +
-			"property in any American Cyber Security Management product or service.  Use of the tool is for " +
-			"internal, reference purposes only; however, American Cyber Security Management partners may " +
-			"distribute the GDPR Quick Assessment to their customers for such customers’ internal, reference " +
-			"purposes only. Any distribution of the GDPR Quick Assessment by a American Cyber Security Management " +
-			"partner to its customers must include terms consistent with those set forth in this disclaimer.   \n" + 
-			"© 2017 American Cyber Security Management.  All rights reserved ";
-	*/
 }

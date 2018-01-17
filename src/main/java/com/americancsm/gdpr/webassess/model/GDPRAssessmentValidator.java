@@ -11,13 +11,13 @@ import com.amazonaws.services.lambda.runtime.Context;
 import com.amazonaws.services.lambda.runtime.LambdaLogger;
 import com.americancsm.gdpr.webassess.util.AWSContextLocator;
 
-public class GDPRQuickAssessmentValidator {
+public class GDPRAssessmentValidator {
 	
 	private Context context;
 	private Validator validator;
 	private Set<ConstraintViolation<GDPRAssessmentRequest>> violations;
 
-	public GDPRQuickAssessmentValidator() {
+	public GDPRAssessmentValidator() {
 		super();
 		AWSContextLocator locator = AWSContextLocator.getInstance();
 		this.context = locator.getContext();
