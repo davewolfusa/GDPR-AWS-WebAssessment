@@ -19,7 +19,7 @@ public class GenerateTestFiles {
 			testOutputDirectory = "src/test/resources/";
 		}
 		String testFile1Path = testOutputDirectory + "testFile1.json";
-		GDPRQuickAssessmentBean bean1 = BuildTestObjects.buildTestObject1();
+		GDPRAssessmentRequest bean1 = BuildTestObjects.buildTestObject1();
 
 		ObjectMapper mapper = new ObjectMapper();
 
@@ -37,7 +37,7 @@ public class GenerateTestFiles {
 			testOutputDirectory = "src/test/resources/";
 		}
 		String testFile1Path = testOutputDirectory + "testFile2.json";
-		GDPRQuickAssessmentBean bean2 = BuildTestObjects.buildTestObject2();
+		GDPRAssessmentRequest bean2 = BuildTestObjects.buildTestObject2();
 
 		ObjectMapper mapper = new ObjectMapper();
 
@@ -63,15 +63,15 @@ public class GenerateTestFiles {
 		ObjectMapper objectMapper = new ObjectMapper();
 		
 		//convert json string to object
-		GDPRQuickAssessmentBean bean = null;
+		GDPRAssessmentRequest bean = null;
 		try {
-			bean = objectMapper.readValue(jsonData, GDPRQuickAssessmentBean.class);
+			bean = objectMapper.readValue(jsonData, GDPRAssessmentRequest.class);
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		
-		System.out.println("GDPRQuickAssessmentBean Object\n" + bean);
+		System.out.println("GDPRAssessmentRequest Object\n" + bean);
 	}
 
 }

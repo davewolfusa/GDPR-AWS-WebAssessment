@@ -2,14 +2,15 @@ package com.americancsm.gdpr.webassess;
 	
 import com.amazonaws.services.lambda.runtime.Context;
 import com.amazonaws.services.lambda.runtime.RequestHandler;
-import com.americancsm.gdpr.webassess.model.GDPRQuickAssessmentBean;
+import com.americancsm.gdpr.webassess.model.GDPRAssessmentRequest;
+import com.americancsm.gdpr.webassess.model.GDPRAssessmentResponse;
 import com.americancsm.gdpr.webassess.model.GDPRQuickAssessmentValidator;
 import com.americancsm.gdpr.webassess.subscriber.QuickAssessmentPublisher;
 import com.americancsm.gdpr.webassess.subscriber.S3Subscriber;
 import com.americancsm.gdpr.webassess.subscriber.TopicSubscriber;
 import com.americancsm.gdpr.webassess.util.AWSContextLocator;
 
-public class LambdaFunctionHandler implements RequestHandler<GDPRQuickAssessmentBean, String> {
+public class LambdaFunctionHandler implements RequestHandler<GDPRAssessmentRequest, GDPRAssessmentResponse> {
 	public static final String SUCCESS = "Success";
 	public static final String FAILURE = "Failure";
 	private QuickAssessmentPublisher publisher;
@@ -18,9 +19,9 @@ public class LambdaFunctionHandler implements RequestHandler<GDPRQuickAssessment
 	private static boolean isInitialized = false;
 
 	@Override
-	public String handleRequest(GDPRQuickAssessmentBean assessmentBean, Context context) {
+	public GDPRAssessmentResponse handleRequest(GDPRAssessmentRequest assessmentBean, Context context) {
 		
-		String result = FAILURE;
+		GDPRAssessmentResponse response = new GDPRAssessmentResponse();
 
 		// Lazily Initialize Function
 		if (!isInitialized) {
@@ -38,10 +39,11 @@ public class LambdaFunctionHandler implements RequestHandler<GDPRQuickAssessment
 			
 			// Update state
 			publisher.setAssessmentBean(assessmentBean);
-			result = SUCCESS;
+			response.setResult(SUCCESS);
+			response.setScore(42.21f);
 		}
 		
-	    return result;
+	    return response;
 	}
 	
 	private void initialize() {

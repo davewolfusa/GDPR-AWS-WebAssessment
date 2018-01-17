@@ -10,13 +10,13 @@ import java.util.Date;
 import com.americancsm.gdpr.webassess.model.CertificationEnum;
 import com.americancsm.gdpr.webassess.model.CountryEnum;
 import com.americancsm.gdpr.webassess.model.GDPRAssessmentInfo;
-import com.americancsm.gdpr.webassess.model.GDPRQuickAssessmentBean;
+import com.americancsm.gdpr.webassess.model.GDPRAssessmentRequest;
 import com.americancsm.gdpr.webassess.model.IAASProviderEnum;
 import com.americancsm.gdpr.webassess.model.RequestorInfo;
 
 public class BuildTestObjects {
 	
-	static public GDPRQuickAssessmentBean buildTestObject1() {
+	static public GDPRAssessmentRequest buildTestObject1() {
 		RequestorInfo requestInfo = new RequestorInfo();
 		requestInfo.setFirstName("Dave");
 		requestInfo.setLastName("Wolf");
@@ -46,14 +46,14 @@ public class BuildTestObjects {
 		assessmentInfo.setCertifications(new CertificationEnum[] { PCI });
 		assessmentInfo.setAcsmComplexityValue(1);
 		
-		GDPRQuickAssessmentBean bean = new GDPRQuickAssessmentBean();
+		GDPRAssessmentRequest bean = new GDPRAssessmentRequest();
 		bean.setRequestor(requestInfo);
 		bean.setAssessmentInfo(assessmentInfo);
 		
 		return bean;
 	}
 	
-	static public GDPRQuickAssessmentBean buildTestObject2() {
+	static public GDPRAssessmentRequest buildTestObject2() {
 		RequestorInfo requestInfo = new RequestorInfo();
 		requestInfo.setFirstName("Carlin");
 		requestInfo.setLastName("Dornbusch");
@@ -87,7 +87,7 @@ public class BuildTestObjects {
 		assessmentInfo.setCertifications(new CertificationEnum[] { PCI, HIPAA, ISO });
 		assessmentInfo.setAcsmComplexityValue(1);
 		
-		GDPRQuickAssessmentBean bean = new GDPRQuickAssessmentBean();
+		GDPRAssessmentRequest bean = new GDPRAssessmentRequest();
 		bean.setRequestor(requestInfo);
 		bean.setAssessmentInfo(assessmentInfo);
 		

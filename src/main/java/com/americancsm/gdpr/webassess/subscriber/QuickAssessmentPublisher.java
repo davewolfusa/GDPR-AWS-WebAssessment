@@ -2,11 +2,11 @@ package com.americancsm.gdpr.webassess.subscriber;
 
 import java.util.ArrayList;
 
-import com.americancsm.gdpr.webassess.model.GDPRQuickAssessmentBean;
+import com.americancsm.gdpr.webassess.model.GDPRAssessmentRequest;
 
 public class QuickAssessmentPublisher implements Observable {
 	
-	private GDPRQuickAssessmentBean assessmentBean;
+	private GDPRAssessmentRequest assessmentBean;
 	
 	private ArrayList<Observer> observerList;
 	
@@ -37,14 +37,14 @@ public class QuickAssessmentPublisher implements Observable {
 	/**
 	 * @return the assessmentBean
 	 */
-	public GDPRQuickAssessmentBean getAssessmentBean() {
+	public GDPRAssessmentRequest getAssessmentBean() {
 		return assessmentBean;
 	}
 
 	/**
 	 * @param assessmentBean the assessmentBean to set
 	 */
-	public void setAssessmentBean(GDPRQuickAssessmentBean assessmentBean) {
+	public void setAssessmentBean(GDPRAssessmentRequest assessmentBean) {
 		this.assessmentBean = assessmentBean;
 		this.notifyObservers();
 	}

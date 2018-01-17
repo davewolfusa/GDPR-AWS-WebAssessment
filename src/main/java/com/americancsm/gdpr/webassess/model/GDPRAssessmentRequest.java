@@ -4,7 +4,7 @@ import java.io.Serializable;
 
 import lombok.Data;
 
-public @Data class GDPRQuickAssessmentBean implements Serializable {
+public @Data class GDPRAssessmentRequest implements Serializable {
 	private static final long serialVersionUID = 1L;
 	private static final String LINE_END = "\n";
 	

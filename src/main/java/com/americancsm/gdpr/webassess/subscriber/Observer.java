@@ -1,10 +1,10 @@
 package com.americancsm.gdpr.webassess.subscriber;
 
-import com.americancsm.gdpr.webassess.model.GDPRQuickAssessmentBean;
+import com.americancsm.gdpr.webassess.model.GDPRAssessmentRequest;
 
 public interface Observer {
 
-	String update(GDPRQuickAssessmentBean assessment);
+	String update(GDPRAssessmentRequest assessment);
 
 	void setObservable(Observable observable);
 	

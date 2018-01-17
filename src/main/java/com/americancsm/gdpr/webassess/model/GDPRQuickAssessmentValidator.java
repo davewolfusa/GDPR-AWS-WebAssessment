@@ -15,7 +15,7 @@ public class GDPRQuickAssessmentValidator {
 	
 	private Context context;
 	private Validator validator;
-	private Set<ConstraintViolation<GDPRQuickAssessmentBean>> violations;
+	private Set<ConstraintViolation<GDPRAssessmentRequest>> violations;
 
 	public GDPRQuickAssessmentValidator() {
 		super();
@@ -25,7 +25,7 @@ public class GDPRQuickAssessmentValidator {
 		validator = factory.getValidator();
 	}
 	
-	public boolean validate(GDPRQuickAssessmentBean quickAssessmentBean) {
+	public boolean validate(GDPRAssessmentRequest quickAssessmentBean) {
 		LambdaLogger LOGGER = context.getLogger();
 		
 		violations = validator.validate(quickAssessmentBean);
@@ -33,14 +33,14 @@ public class GDPRQuickAssessmentValidator {
 		if (violations.size() > 0) {
 			LOGGER.log("\nFound " + violations.size() + " validation errors!\n");
 	
-        		for (ConstraintViolation<GDPRQuickAssessmentBean> violation : violations) {
+        		for (ConstraintViolation<GDPRAssessmentRequest> violation : violations) {
         			context.getLogger().log(	"\t" + violation.getMessage());
         		}
 		}
 		return violations.isEmpty();
 	}
 	
-	public Set<ConstraintViolation<GDPRQuickAssessmentBean>> getViolations() {
+	public Set<ConstraintViolation<GDPRAssessmentRequest>> getViolations() {
 		return violations;
 	}
 
