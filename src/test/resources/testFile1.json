@@ -1,3 +1,4 @@
+
 {
   "requestor" : {
     "firstName" : "Dave",
@@ -25,7 +26,6 @@
     "iaasProviderLocations" : [ "UNITED_STATES" ],
     "isPrivacyShieldCertified" : false,
     "certifications" : [ "PCI" ],
-    "dataClassificationLevels" : 1,
-    "acsmComplexityValue" : 1
+    "dataClassificationLevels" : 1
   }
 }
