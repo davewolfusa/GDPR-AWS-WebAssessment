@@ -27,6 +27,16 @@ public class LambdaFunctionHandler implements RequestHandler<GDPRAssessmentReque
 	public APIGatewayResponse handleRequest(GDPRAssessmentRequest apiGatewayRequest, Context context) {
 		
 		LOGGER = context.getLogger();
+		ObjectMapper mapper = new ObjectMapper();
+		String requestString = "";
+		try {
+			requestString = mapper.
+				writerWithDefaultPrettyPrinter().
+			    writeValueAsString(apiGatewayRequest);
+		} catch (JsonProcessingException e) {
+			e.printStackTrace();
+		}
+		LOGGER.log("Request: " + requestString);
 		APIGatewayResponse apiResponse = new APIGatewayResponse();
 		apiResponse.setStatusCode("400");
 		GDPRAssessmentResponse response = new GDPRAssessmentResponse();
@@ -54,16 +64,14 @@ public class LambdaFunctionHandler implements RequestHandler<GDPRAssessmentReque
 			publisher.setAssessmentBean(assessmentRequest);
 			response.setResult(SUCCESS);
 			response.setScore(42.21f);
-			ObjectMapper mapper = new ObjectMapper();
             String responseString = "";
 			try {
 				responseString = mapper.
 						writerWithDefaultPrettyPrinter().
 						writeValueAsString(response);
 			} catch (JsonProcessingException jpe) {
-				LOGGER.log("Caught an AmazonClientException, which means the client encountered " +
-	                       "an internal error while trying to communicate with S3, " +
-	                       "such as not being able to access the network.\n");
+				LOGGER.log("Caught a JsonProcessingException, which means the client encountered " +
+	                       "an internal error while trying to unmarschal an object.");
 	            LOGGER.log("Error Message: " + jpe.getMessage() + "\n");
 			}
 			apiResponse.setBody(responseString);
