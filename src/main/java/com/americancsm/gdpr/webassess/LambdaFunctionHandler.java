@@ -27,6 +27,8 @@ public class LambdaFunctionHandler implements RequestHandler<GDPRAssessmentReque
 	public APIGatewayResponse handleRequest(GDPRAssessmentRequest apiGatewayRequest, Context context) {
 		
 		LOGGER = context.getLogger();
+		
+		// Log Request Data
 		ObjectMapper mapper = new ObjectMapper();
 		String requestString = "";
 		try {
@@ -34,13 +36,17 @@ public class LambdaFunctionHandler implements RequestHandler<GDPRAssessmentReque
 				writerWithDefaultPrettyPrinter().
 			    writeValueAsString(apiGatewayRequest);
 		} catch (JsonProcessingException e) {
+			LOGGER.log(e.getLocalizedMessage());
 			e.printStackTrace();
 		}
 		LOGGER.log("Request: " + requestString);
+		
+		// Create Default (Error) Response Objects
 		APIGatewayResponse apiResponse = new APIGatewayResponse();
 		apiResponse.setStatusCode("400");
 		GDPRAssessmentResponse response = new GDPRAssessmentResponse();
 		response.setResult(FAILURE);
+		apiResponse.setBody(response);
 
 		// Lazily Initialize Function
 		if (!isInitialized) {
@@ -51,7 +57,6 @@ public class LambdaFunctionHandler implements RequestHandler<GDPRAssessmentReque
 		contextLocator.setContext(context);
 		
 		// Extract AssessmentInfo
-		// GDPRAssessmentRequest assessmentRequest = apiGatewayRequest.getBody();
 		GDPRAssessmentRequest assessmentRequest = apiGatewayRequest;
 		
 		// Validate GDPR Request
@@ -59,22 +64,16 @@ public class LambdaFunctionHandler implements RequestHandler<GDPRAssessmentReque
 		boolean isValid = validator.validate(assessmentRequest);
 		
 		if (isValid) {
+			// Compute Complexity Value
+			assessmentRequest.getAssessmentInfo().computeComplexityValue();
 			
-			// Update state
+			// Publish to Subscribers (S3 & Topic)
 			publisher.setAssessmentBean(assessmentRequest);
+			
+			// Set the response
 			response.setResult(SUCCESS);
-			response.setScore(42.21f);
-            String responseString = "";
-			try {
-				responseString = mapper.
-						writerWithDefaultPrettyPrinter().
-						writeValueAsString(response);
-			} catch (JsonProcessingException jpe) {
-				LOGGER.log("Caught a JsonProcessingException, which means the client encountered " +
-	                       "an internal error while trying to unmarschal an object.");
-	            LOGGER.log("Error Message: " + jpe.getMessage() + "\n");
-			}
-			apiResponse.setBody(responseString);
+			response.setScore(assessmentRequest.getAssessmentInfo().getAcsmComplexityValue());
+			apiResponse.setBody(response);
 			apiResponse.setStatusCode("200");
 		}
 		

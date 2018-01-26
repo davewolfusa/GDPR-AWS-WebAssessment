@@ -1,5 +1,6 @@
 package com.americancsm.gdpr.webassess.model;
 
+import static com.americancsm.gdpr.webassess.model.CertificationEnum.NONE;
 import static com.americancsm.gdpr.webassess.model.CertificationEnum.ISO;
 
 import java.io.Serializable;
@@ -12,10 +13,14 @@ import javax.validation.constraints.PositiveOrZero;
 
 import org.apache.commons.text.WordUtils;
 
+import com.amazonaws.services.lambda.runtime.LambdaLogger;
+import com.americancsm.gdpr.webassess.util.AWSContextLocator;
+
 import lombok.Data;
 
 public @Data class GDPRAssessmentInfo implements Serializable {
 	private static final long serialVersionUID = 1L;
+	protected LambdaLogger LOGGER = null;
 	
 	public static final String PHONE_REGEX = "\\D*([2-9]\\d{2})(\\D*)([2-9]\\d{2})(\\D*)(\\d{4})\\D*";
 	
@@ -33,8 +38,8 @@ public @Data class GDPRAssessmentInfo implements Serializable {
 	private Integer contractorCount;
 	@NotNull
 	private CountryEnum[] contractorLocations;
-	@Positive
-	private Integer servicedCountriesCount;
+	@NotNull
+	private CountryEnum[] servicedCountries;
 	@Positive
 	private Integer productTypeCount;
 	@Positive
@@ -55,22 +60,32 @@ public @Data class GDPRAssessmentInfo implements Serializable {
 	private Integer acsmComplexityValue;
 	
 	public void computeComplexityValue() {
+		AWSContextLocator contextLocator = AWSContextLocator.getInstance();
+		LOGGER = contextLocator.getContext().getLogger();
 		// Calculation=
 		//     ((Emp+Contract)*Num countries serviced) + 
 		//     (Num of Systems * (Num Users/100,000) * Num Iaas Providers) - 
 		//     (2=Yes Privacy Shield OR 1=No) - (Num Compliance Certs) - (1=ISO)
 		int isoPresenceValue = 0;
-		for (CertificationEnum cert : this.certifications) {
-			if (cert.equals(ISO)) {
-				isoPresenceValue = 1;
-				break;
-			}
+		int certificationCount = 0;
+		if (this.certifications != null) {
+        		for (CertificationEnum cert : this.certifications) {
+        			if (cert.equals(NONE)) {
+        				certificationCount = 0;
+        				break;
+        			}
+        			certificationCount++;
+        			if (cert.equals(ISO)) {
+        				isoPresenceValue = 1;
+        				break;
+        			}
+        		}
 		}
 		
 		this.acsmComplexityValue = 
-			((this.employeeCount + this.contractorCount) * this.servicedCountriesCount) +
+			((this.employeeCount + this.contractorCount) * this.servicedCountries.length) +
 			(this.productTypeCount * (this.customerCount/100000) * this.iaasProviderCount) -
-			((this.isPrivacyShieldCertified ? 2 : 1) - this.certifications.length - isoPresenceValue);
+			((this.isPrivacyShieldCertified ? 2 : 1) - certificationCount - isoPresenceValue);
 	}
 	
 	private static final String COMMA = ", ";
@@ -103,7 +118,8 @@ public @Data class GDPRAssessmentInfo implements Serializable {
 		sb.append(this.formatEnumArray(this.contractorLocations, true));
 		sb.append(LINE_END);
 		
-		sb.append("Number of Countries Serviced: " + this.servicedCountriesCount + LINE_END);
+		sb.append(THERE_ARE + this.servicedCountries.length + " countries serviced in ");
+		sb.append(this.formatEnumArray(this.servicedCountries, true));
 		sb.append("Number of Systems/Products/Services: " + this.productTypeCount + LINE_END);
 		sb.append("Number of System User's (Subscribers, Consumers, etc.): " + this.customerCount + LINE_END);
 		sb.append(LINE_END);

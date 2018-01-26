@@ -17,7 +17,7 @@
     "employeeLocations" : [ "UNITED_STATES", "UNITED_KINGDOM", "JAPAN", "BRAZIL", "MEXICO", "COLUMBIA", "ARGENTINA", "CANADA", "CHINA", "INDIA", "INDONESIA", "PAKISTAN", "BANGLADESH", "AUSTRIA", "BELGIUM", "BULGARIA", "CROATIA", "CYPRUS", "CZECH_REPUBLIC", "DENMARK", "RUSSIA", "UKRAINE", "BELARUS", "SERBIA", "SWITZERLAND", "NORWAY", "AUSTRAILIA", "PAPUA_NEW_GUINEA", "NEW_ZEALAND", "FIJI", "SOLOMON_ISLANDS", "FRENCH_POLYNESIA", "NEW_CALEDONIA", "VANUATU" ],
     "contractorCount" : 5,
     "contractorLocations" : [ "UNITED_STATES", "UNITED_KINGDOM", "JAPAN" ],
-    "servicedCountriesCount" : 1,
+    "servicedCountries" : [ "UNITED_STATES", "UNITED_KINGDOM", "JAPAN" ],
     "productTypeCount" : 3,
     "customerCount" : 1,
     "iaasProviderCount" : 1,

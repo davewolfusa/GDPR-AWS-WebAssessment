@@ -18,7 +18,7 @@
     "employeeLocations" : [ "UNITED_STATES" ],
     "contractorCount" : 0,
     "contractorLocations" : [ ],
-    "servicedCountriesCount" : 1,
+    "servicedCountries" : [ "UNITED_STATES" ],
     "productTypeCount" : 3,
     "customerCount" : 1,
     "iaasProviderCount" : 1,
