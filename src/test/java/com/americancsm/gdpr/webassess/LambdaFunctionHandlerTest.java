@@ -8,7 +8,6 @@ import org.junit.Test;
 
 import com.amazonaws.services.lambda.runtime.Context;
 import com.americancsm.gdpr.webassess.model.GDPRAssessmentRequest;
-import com.americancsm.gdpr.webassess.model.GDPRAssessmentResponse;
 import com.americancsm.gdpr.webassess.util.BuildTestObjects;
 
 /**
@@ -38,9 +37,9 @@ public class LambdaFunctionHandlerTest {
         LambdaFunctionHandler handler = new LambdaFunctionHandler();
         Context ctx = createContext();
 
-        GDPRAssessmentResponse response = handler.handleRequest(input, ctx);
+        APIGatewayResponse response = handler.handleRequest(input, ctx);
         
         // TODO: validate output here if needed.
-        Assert.assertEquals(LambdaFunctionHandler.SUCCESS, response.getResult());
+        Assert.assertEquals(LambdaFunctionHandler.SUCCESS, response.getBody().getResult());
     }
 }

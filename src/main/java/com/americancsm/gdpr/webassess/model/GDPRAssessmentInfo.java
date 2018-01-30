@@ -20,7 +20,6 @@ import lombok.Data;
 
 public @Data class GDPRAssessmentInfo implements Serializable {
 	private static final long serialVersionUID = 1L;
-	protected LambdaLogger LOGGER = null;
 	
 	public static final String PHONE_REGEX = "\\D*([2-9]\\d{2})(\\D*)([2-9]\\d{2})(\\D*)(\\d{4})\\D*";
 	
@@ -60,8 +59,6 @@ public @Data class GDPRAssessmentInfo implements Serializable {
 	private Integer acsmComplexityValue;
 	
 	public void computeComplexityValue() {
-		AWSContextLocator contextLocator = AWSContextLocator.getInstance();
-		LOGGER = contextLocator.getContext().getLogger();
 		// Calculation=
 		//     ((Emp+Contract)*Num countries serviced) + 
 		//     (Num of Systems * (Num Users/100,000) * Num Iaas Providers) - 
@@ -113,9 +110,14 @@ public @Data class GDPRAssessmentInfo implements Serializable {
 		sb.append(LINE_END);
 		
 		// Contractor Locations
+		int contractorLocationCount = (this.contractorCount > 0) ? this.contractorLocations.length : 0;
 		sb.append("Contractors:\n");
-		sb.append(THERE_ARE + this.contractorCount + " contractors in " + this.contractorLocations.length + LOCATIONS_ACROSS);
-		sb.append(this.formatEnumArray(this.contractorLocations, true));
+		if (this.contractorCount > 0) {
+        		sb.append(THERE_ARE + this.contractorCount + " contractors in " + contractorLocationCount + LOCATIONS_ACROSS);
+        		sb.append(this.formatEnumArray(this.contractorLocations, true));
+		} else {
+        		sb.append(THERE_ARE + "no contractors.");
+		}
 		sb.append(LINE_END);
 		
 		sb.append(THERE_ARE + this.servicedCountries.length + " countries serviced in ");
@@ -125,11 +127,16 @@ public @Data class GDPRAssessmentInfo implements Serializable {
 		sb.append(LINE_END);
 		
 		// IAAS Locations
+		int iaasProviderLocationCount = (this.iaasProviderCount > 0) ? this.iaasProviderLocations.length : 0;
 		sb.append("IAAS:\n");
-		sb.append("The following (" + this.iaasProviderCount + ") IAAS Providers: \n");
-		sb.append(this.formatEnumArray(this.iaasProviders, true));
-		sb.append("are found in (" + this.iaasProviderLocations.length + ")" + LOCATIONS_ACROSS);
-		sb.append(this.formatEnumArray(this.iaasProviderLocations, true));
+		if (this.iaasProviderCount > 0) {
+        		sb.append("The following (" + this.iaasProviderCount + ") IAAS Providers: \n");
+        		sb.append(this.formatEnumArray(this.iaasProviders, true));
+        		sb.append("are found in (" + iaasProviderLocationCount + ")" + LOCATIONS_ACROSS);
+        		sb.append(this.formatEnumArray(this.iaasProviderLocations, true));
+		} else {
+        		sb.append("There are no IAAS Providers. \n");
+		}
 		sb.append(LINE_END);
 		
 		// Certifications
