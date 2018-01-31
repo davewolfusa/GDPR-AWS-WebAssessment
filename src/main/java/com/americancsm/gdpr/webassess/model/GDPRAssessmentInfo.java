@@ -113,15 +113,23 @@ public @Data class GDPRAssessmentInfo implements Serializable {
 		int contractorLocationCount = (this.contractorCount > 0) ? this.contractorLocations.length : 0;
 		sb.append("Contractors:\n");
 		if (this.contractorCount > 0) {
-        		sb.append(THERE_ARE + this.contractorCount + " contractors in " + contractorLocationCount + LOCATIONS_ACROSS);
+			if (this.contractorCount > 1) {
+        			sb.append(THERE_ARE + this.contractorCount + " contractors in " + contractorLocationCount + LOCATIONS_ACROSS);
+			} else {
+        			sb.append("There is " + this.contractorCount + " contractor in " + contractorLocationCount + LOCATIONS_ACROSS);
+			}
         		sb.append(this.formatEnumArray(this.contractorLocations, true));
 		} else {
         		sb.append(THERE_ARE + "no contractors.");
 		}
 		sb.append(LINE_END);
 		
-		sb.append(THERE_ARE + this.servicedCountries.length + " countries serviced in ");
-		sb.append(this.formatEnumArray(this.servicedCountries, true));
+		if (this.servicedCountries.length > 1) {
+        		sb.append(THERE_ARE + this.servicedCountries.length + " countries serviced in ");
+        		sb.append(this.formatEnumArray(this.servicedCountries, true));
+		} else {
+        		sb.append("Serviced country: " + this.servicedCountries[0]);
+		}
 		sb.append("Number of Systems/Products/Services: " + this.productTypeCount + LINE_END);
 		sb.append("Number of System User's (Subscribers, Consumers, etc.): " + this.customerCount + LINE_END);
 		sb.append(LINE_END);
