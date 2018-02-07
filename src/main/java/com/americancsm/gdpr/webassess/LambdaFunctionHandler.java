@@ -1,12 +1,16 @@
 package com.americancsm.gdpr.webassess;
 	
+import java.util.List;
+
 import com.amazonaws.services.lambda.runtime.Context;
 import com.amazonaws.services.lambda.runtime.LambdaLogger;
 import com.amazonaws.services.lambda.runtime.RequestHandler;
 import com.americancsm.gdpr.webassess.model.GDPRAssessmentRequest;
 import com.americancsm.gdpr.webassess.model.GDPRAssessmentResponse;
 import com.americancsm.gdpr.webassess.model.GDPRAssessmentValidator;
-import com.americancsm.gdpr.webassess.subscriber.QuickAssessmentPublisher;
+import com.americancsm.gdpr.webassess.model.StatusEnum;
+import com.americancsm.gdpr.webassess.subscriber.AssessmentPublisher;
+import com.americancsm.gdpr.webassess.subscriber.ObserverResult;
 import com.americancsm.gdpr.webassess.subscriber.S3Subscriber;
 import com.americancsm.gdpr.webassess.subscriber.TopicSubscriber;
 import com.americancsm.gdpr.webassess.util.AWSContextLocator;
@@ -18,7 +22,7 @@ public class LambdaFunctionHandler implements RequestHandler<GDPRAssessmentReque
 	protected LambdaLogger LOGGER = null;
 	public static final String SUCCESS = "Success";
 	public static final String FAILURE = "Failure";
-	private QuickAssessmentPublisher publisher;
+	private AssessmentPublisher publisher;
 	private AWSContextLocator contextLocator;
 	private static Object mutex = new Object();
 	private static boolean isInitialized = false;
@@ -65,16 +69,28 @@ public class LambdaFunctionHandler implements RequestHandler<GDPRAssessmentReque
 		
 		if (isValid) {
 			// Compute Complexity Value
-			assessmentRequest.getAssessmentInfo().computeComplexityValue();
+			GDPRAssessor assessor = new GDPRAssessor(assessmentRequest.getAssessmentInfo());
+			assessmentRequest.getAssessmentInfo().setAcsmComplexityValue(assessor.computeComplexityValue());
 			
 			// Publish to Subscribers (S3 & Topic)
-			publisher.setAssessmentBean(assessmentRequest);
+			publisher.setMessage(assessmentRequest);
+			List<ObserverResult<String>> resultList = publisher.notifyObservers();
+			
+			String functionResult = StatusEnum.SUCCESS.toString();
+			String functionStatus = "200";
+			for (ObserverResult<String> result : resultList) {
+				if (result.getStatus() == StatusEnum.FAILURE) {
+					functionResult = StatusEnum.FAILURE.toString();
+					functionStatus = "400";
+					break;
+				}
+			}
 			
 			// Set the response
-			response.setResult(SUCCESS);
+			response.setResult(functionResult);
 			response.setScore(assessmentRequest.getAssessmentInfo().getAcsmComplexityValue());
 			apiResponse.setBody(response);
-			apiResponse.setStatusCode("200");
+			apiResponse.setStatusCode(functionStatus);
 		}
 		
 	    return apiResponse;
@@ -85,7 +101,7 @@ public class LambdaFunctionHandler implements RequestHandler<GDPRAssessmentReque
 			if (!isInitialized) {
                 	
             		// Construct Publish/Subscribe objects
-            		publisher = new QuickAssessmentPublisher();
+            		publisher = new AssessmentPublisher();
             		// Add Observer / Subscriber objects to Observable / Publisher.
                 		
             		// Topic Subscriber

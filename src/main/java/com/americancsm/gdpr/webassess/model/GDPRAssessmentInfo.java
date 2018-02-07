@@ -1,8 +1,5 @@
 package com.americancsm.gdpr.webassess.model;
 
-import static com.americancsm.gdpr.webassess.model.CertificationEnum.NONE;
-import static com.americancsm.gdpr.webassess.model.CertificationEnum.ISO;
-
 import java.io.Serializable;
 
 import javax.validation.constraints.Max;
@@ -12,9 +9,6 @@ import javax.validation.constraints.Positive;
 import javax.validation.constraints.PositiveOrZero;
 
 import org.apache.commons.text.WordUtils;
-
-import com.amazonaws.services.lambda.runtime.LambdaLogger;
-import com.americancsm.gdpr.webassess.util.AWSContextLocator;
 
 import lombok.Data;
 
@@ -57,33 +51,6 @@ public @Data class GDPRAssessmentInfo implements Serializable {
 	private Integer dataClassificationLevels;
 	@NotNull @Positive
 	private Integer acsmComplexityValue;
-	
-	public void computeComplexityValue() {
-		// Calculation=
-		//     ((Emp+Contract)*Num countries serviced) + 
-		//     (Num of Systems * (Num Users/100,000) * Num Iaas Providers) - 
-		//     (2=Yes Privacy Shield OR 1=No) - (Num Compliance Certs) - (1=ISO)
-		int isoPresenceValue = 0;
-		int certificationCount = 0;
-		if (this.certifications != null) {
-        		for (CertificationEnum cert : this.certifications) {
-        			if (cert.equals(NONE)) {
-        				certificationCount = 0;
-        				break;
-        			}
-        			certificationCount++;
-        			if (cert.equals(ISO)) {
-        				isoPresenceValue = 1;
-        				break;
-        			}
-        		}
-		}
-		
-		this.acsmComplexityValue = 
-			((this.employeeCount + this.contractorCount) * this.servicedCountries.length) +
-			(this.productTypeCount * (this.customerCount/100000) * this.iaasProviderCount) -
-			((this.isPrivacyShieldCertified ? 2 : 1) - certificationCount - isoPresenceValue);
-	}
 	
 	private static final String COMMA = ", ";
 	private static final String LINE_END = "\n";

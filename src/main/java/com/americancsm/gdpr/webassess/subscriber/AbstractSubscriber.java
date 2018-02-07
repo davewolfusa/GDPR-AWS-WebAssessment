@@ -4,9 +4,9 @@ import com.amazonaws.services.lambda.runtime.Context;
 import com.amazonaws.services.lambda.runtime.LambdaLogger;
 import com.americancsm.gdpr.webassess.util.AWSContextLocator;
 
-public abstract class AbstractSubscriber implements Observer {
+public abstract class AbstractSubscriber<X,Y> implements Observer<X,Y> {
 
-	protected Observable publisher;
+	protected Observable<X,Y> publisher;
 	protected Context context;
 	protected final LambdaLogger LOGGER;
 	
@@ -20,7 +20,7 @@ public abstract class AbstractSubscriber implements Observer {
 	}
 	
 	@Override
-	public void setObservable(Observable observable) {
+	public void setObservable(Observable<X,Y> observable) {
 		this.publisher = observable;
 	}
 	

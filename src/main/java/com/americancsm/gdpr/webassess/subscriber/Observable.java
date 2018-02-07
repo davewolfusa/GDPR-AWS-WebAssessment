@@ -1,10 +1,12 @@
 package com.americancsm.gdpr.webassess.subscriber;
 
-public interface Observable {
+import java.util.List;
 
-	void addObserver(Observer observer);
+public interface Observable<X,Y> {
+
+	void addObserver(Observer<X,Y> observer);
 	
-	Observer removeObserver(Observer observer);
+	Observer<X,Y> removeObserver(Observer<X,Y> observer);
 	
-	void notifyObservers();
+	List<ObserverResult<Y>> notifyObservers();
 }

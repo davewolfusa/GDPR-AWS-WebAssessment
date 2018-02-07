@@ -8,7 +8,8 @@ import com.amazonaws.services.sns.model.PublishRequest;
 import com.amazonaws.services.sns.model.PublishResult;
 import com.americancsm.gdpr.webassess.model.GDPRAssessmentRequest;
 
-public class TopicSubscriber extends AbstractSubscriber implements Observer {
+public class TopicSubscriber extends AbstractSubscriber<GDPRAssessmentRequest,String> 
+	implements Observer<GDPRAssessmentRequest,String> {
 
 	private static final String TOPIC_ARN = "TOPIC_ARN";
 	
@@ -21,17 +22,24 @@ public class TopicSubscriber extends AbstractSubscriber implements Observer {
 	}
 
 	@Override
-	public String update(GDPRAssessmentRequest assessment) {
+	public ObserverResult<String> update(GDPRAssessmentRequest assessment) {
 		PublishResult publishResult = null;
+		ObserverResult<String> result;
 		
 		// Publish to an SNS topic
 		String msg = assessment.formatForDocument();
 		PublishRequest publishRequest = new PublishRequest(topicARN, msg);
 		publishResult = snsClient.publish(publishRequest);
-		LOGGER.log("GDPR Quick Assessment sent to SNS topic: " + topicARN + 
-				   " with message ID = " + publishResult.getMessageId() + "\n");
+		if (publishResult.getMessageId() != null) {
+    		    LOGGER.log("GDPR Quick Assessment sent to SNS topic: " + topicARN + 
+    				   " with message ID = " + publishResult.getMessageId() + "\n");
+            result = new ObserverResult<>(publishResult.getMessageId());
+		} else {
+    		    LOGGER.log("GDPR Quick Assessment failed attempt to send to SNS topic: " + topicARN + "\n");
+            result = new ObserverResult<>();
+		}
 		
-		return publishResult.getMessageId();
+		return result;
 	}
 
 	@Override

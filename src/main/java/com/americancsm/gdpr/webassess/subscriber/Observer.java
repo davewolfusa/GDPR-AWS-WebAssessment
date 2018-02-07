@@ -1,12 +1,10 @@
 package com.americancsm.gdpr.webassess.subscriber;
 
-import com.americancsm.gdpr.webassess.model.GDPRAssessmentRequest;
+public interface Observer<X,Y> {
 
-public interface Observer {
+	ObserverResult<Y> update(X message);
 
-	String update(GDPRAssessmentRequest assessment);
-
-	void setObservable(Observable observable);
+	void setObservable(Observable<X,Y> observable);
 	
 	void unSubscribe();
 }

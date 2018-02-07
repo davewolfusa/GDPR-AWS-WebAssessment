@@ -11,22 +11,21 @@
   },
   "assessmentInfo" : {
     "hqLocation" : "UNITED_STATES",
-    "officeCount" : 1,
+    "officeCount" : 20,
     "officeLocations" : [ "UNITED_STATES", "UNITED_KINGDOM", "JAPAN" ],
-    "employeeCount" : 1,
+    "employeeCount" : 15000,
     "employeeLocations" : [ "UNITED_STATES", "UNITED_KINGDOM", "JAPAN", "BRAZIL", "MEXICO", "COLUMBIA", "ARGENTINA", "CANADA", "CHINA", "INDIA", "INDONESIA", "PAKISTAN", "BANGLADESH", "AUSTRIA", "BELGIUM", "BULGARIA", "CROATIA", "CYPRUS", "CZECH_REPUBLIC", "DENMARK", "RUSSIA", "UKRAINE", "BELARUS", "SERBIA", "SWITZERLAND", "NORWAY", "AUSTRAILIA", "PAPUA_NEW_GUINEA", "NEW_ZEALAND", "FIJI", "SOLOMON_ISLANDS", "FRENCH_POLYNESIA", "NEW_CALEDONIA", "VANUATU" ],
-    "contractorCount" : 5,
+    "contractorCount" : 500,
     "contractorLocations" : [ "UNITED_STATES", "UNITED_KINGDOM", "JAPAN" ],
     "servicedCountries" : [ "UNITED_STATES", "UNITED_KINGDOM", "JAPAN", "BRAZIL", "MEXICO", "COLUMBIA", "ARGENTINA", "CANADA", "CHINA", "INDIA", "INDONESIA", "PAKISTAN", "BANGLADESH", "AUSTRIA", "BELGIUM", "BULGARIA", "CROATIA", "CYPRUS", "CZECH_REPUBLIC", "DENMARK", "RUSSIA", "UKRAINE", "BELARUS", "SERBIA", "SWITZERLAND", "NORWAY", "AUSTRAILIA", "PAPUA_NEW_GUINEA", "NEW_ZEALAND", "FIJI", "SOLOMON_ISLANDS", "FRENCH_POLYNESIA", "NEW_CALEDONIA", "VANUATU" ],
-    "productTypeCount" : 3,
-    "customerCount" : 1,
+    "productTypeCount" : 20,
+    "customerCount" : 1000000,
     "iaasProviderCount" : 1,
     "iaasProviders" : [ "AMAZON_WEB_SERVICES", "GOOGLE_CLOUD_PLATFORM" ],
     "iaasProviderLocations" : [ "UNITED_STATES", "MEXICO", "UNITED_KINGDOM", "JAPAN" ],
     "isPrivacyShieldCertified" : true,
     "certifications" : [ "PCI", "HIPAA", "ISO" ],
     "dataClassificationLevels" : 1,
-    "acsmComplexityValue" : 1,
     "logger" : null
   }
 }

@@ -11,7 +11,7 @@ import com.americancsm.gdpr.webassess.model.GDPRAssessmentRequest;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
-public class S3Subscriber extends AbstractSubscriber implements Observer {
+public class S3Subscriber extends AbstractSubscriber<GDPRAssessmentRequest,String> implements Observer<GDPRAssessmentRequest,String> {
 	
 	private static final String S3_BUCKET_NAME = "S3_BUCKET_NAME";
     private static final String S3_BUCKET_PATH = "S3_BUCKET_PATH";
@@ -26,8 +26,9 @@ public class S3Subscriber extends AbstractSubscriber implements Observer {
 	}
 
 	@Override
-	public String update(GDPRAssessmentRequest assessment) {
-		String publishResult = "FAILED";
+	public ObserverResult<String> update(GDPRAssessmentRequest assessment) {
+		String publishProduct = null;
+		ObserverResult<String> result = new ObserverResult<>();
 		
 		// Publish to a S3 Bucket
 		try {
@@ -44,9 +45,10 @@ public class S3Subscriber extends AbstractSubscriber implements Observer {
             PutObjectResult putObjectResult = 
             		s3Client.putObject(s3BucketName, keyName, gdprAssessment);
             
-            publishResult = putObjectResult.getETag();
+            publishProduct = putObjectResult.getETag();
             LOGGER.log("GDPR Quick Assessment sent to S3 Bucket: " + this.s3BucketName + 
-				   " with ETag ID = " + publishResult + "\n");
+				   " with ETag ID = " + publishProduct + "\n");
+            result = new ObserverResult<>(publishProduct);
 
          } catch (AmazonServiceException ase) {
             LOGGER.log("Caught an AmazonServiceException, which means your request made it " +
@@ -54,17 +56,23 @@ public class S3Subscriber extends AbstractSubscriber implements Observer {
             LOGGER.log("Error Message:    " + ase.getMessage()    + "\n");
             LOGGER.log("HTTP Status Code: " + ase.getStatusCode() + "\n");
             LOGGER.log("AWS Error Code:   " + ase.getErrorCode()  + "\n");
-            LOGGER.log("Error Type:       " + ase.getErrorType()  + "\n");
+            LOGGER.log("Error Type:       " + ase.getErrorType().toString()  + "\n");
             LOGGER.log("Request ID:       " + ase.getRequestId()  + "\n");
+            result = new ObserverResult<String>(ase.getErrorCode(), 
+            		                                ase.getErrorType().toString(), 
+            		                                ase.getErrorMessage(),
+            								        ase.getRequestId());
         } catch (AmazonClientException ace) {
             LOGGER.log("Caught an AmazonClientException, which means the client encountered " +
                        "an internal error while trying to communicate with S3, " +
                        "such as not being able to access the network.\n");
             LOGGER.log("Error Message: " + ace.getMessage() + "\n");
+            result = new ObserverResult<String>("", "", ace.getMessage(), "");
         } catch (JsonProcessingException jpe) {
             LOGGER.log("Error Message: " + jpe.getMessage() + "\n");
+            result = new ObserverResult<String>("", "", jpe.getMessage(), "");
 		}
-		return publishResult;
+		return result;
 	}
 
 	@Override
