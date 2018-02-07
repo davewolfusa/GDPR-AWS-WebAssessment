@@ -121,6 +121,9 @@ public @Data class GDPRAssessmentInfo implements Serializable {
 		sb.append(this.formatEnumArray(this.certifications, false));
 		sb.append(LINE_END);
 		
+		// ACSM Complexity Score
+		sb.append("ACSM Complexity Score: " + this.acsmComplexityValue + "\n");
+		
 		return sb.toString();
 	}
 	

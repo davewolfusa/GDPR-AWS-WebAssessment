@@ -1,8 +1,5 @@
 package com.americancsm.gdpr.webassess;
 
-import com.amazonaws.services.lambda.runtime.LambdaLogger;
-import com.americancsm.gdpr.webassess.util.AWSContextLocator;
-
 public enum CustomerLevelEnum {
 	ONE(1,100),
 	TWO(101,500),
