@@ -111,10 +111,12 @@ public @Data class GDPRAssessor {
 	
 	private int numberOfEUCountries(CountryEnum[] countries) {
 		int countEUCountries = 0;
-		for (CountryEnum enumItem : countries) {
-			if (enumItem.isEUMemberCountry()) {
-				countEUCountries++;
-			}
+		if (countries != null) {
+        		for (CountryEnum enumItem : countries) {
+        			if (enumItem.isEUMemberCountry()) {
+        				countEUCountries++;
+        			}
+        		}
 		}
 		return countEUCountries;
 	}
