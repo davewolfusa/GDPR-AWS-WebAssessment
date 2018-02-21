@@ -4,6 +4,7 @@ import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
+import java.util.ArrayList;
 
 import org.junit.Test;
 
@@ -72,6 +73,35 @@ public class GenerateTestFiles {
 		}
 		
 		System.out.println("GDPRAssessmentRequest Object\n" + bean);
+	}
+	
+	@Test
+	public void geneateCountryEnumFile() {
+		String testOutputDirectory = System.getProperty("testOutputDirectory");
+		if (testOutputDirectory == null) {
+			testOutputDirectory = "src/test/resources/";
+		}
+		String countriesPath = testOutputDirectory + "countries.json";
+		ArrayList<Country> countryList = new ArrayList<Country>();
+		for (CountryEnum enumItem : CountryEnum.values()) {
+			Country country = new Country();
+			country.setKey(enumItem.toString());
+			country.setValue(enumItem.ProperName()); 
+			country.setContinent(enumItem.getContinent().toString()); 
+			country.setIsEUMember(enumItem.isEUMemberCountry());
+			countryList.add(country);
+		}
+		
+		Country[] countryArray = new Country[countryList.size()];
+		countryArray = countryList.toArray(countryArray);
+
+		ObjectMapper mapper = new ObjectMapper();
+
+	    try {  
+	        mapper.writerWithDefaultPrettyPrinter().writeValue(new File(countriesPath), countryArray);
+	    } catch (IOException e) {  
+	        e.printStackTrace();  
+	    }  
 	}
 
 }
