@@ -1,0 +1,991 @@
+[ {
+  "key" : "UNITED_STATES",
+  "value" : "United States",
+  "continent" : "AMERICAS",
+  "isEUMember" : false
+}, {
+  "key" : "BRAZIL",
+  "value" : "Brazil",
+  "continent" : "AMERICAS",
+  "isEUMember" : false
+}, {
+  "key" : "MEXICO",
+  "value" : "Mexico",
+  "continent" : "AMERICAS",
+  "isEUMember" : false
+}, {
+  "key" : "COLUMBIA",
+  "value" : "Columbia",
+  "continent" : "AMERICAS",
+  "isEUMember" : false
+}, {
+  "key" : "ARGENTINA",
+  "value" : "Argentina",
+  "continent" : "AMERICAS",
+  "isEUMember" : false
+}, {
+  "key" : "CANADA",
+  "value" : "Canada",
+  "continent" : "AMERICAS",
+  "isEUMember" : false
+}, {
+  "key" : "PERU",
+  "value" : "Peru",
+  "continent" : "AMERICAS",
+  "isEUMember" : false
+}, {
+  "key" : "VENEZUELA",
+  "value" : "Venezuela",
+  "continent" : "AMERICAS",
+  "isEUMember" : false
+}, {
+  "key" : "CHILI",
+  "value" : "Chili",
+  "continent" : "AMERICAS",
+  "isEUMember" : false
+}, {
+  "key" : "GUATEMALA",
+  "value" : "Guatemala",
+  "continent" : "AMERICAS",
+  "isEUMember" : false
+}, {
+  "key" : "ECUADOR",
+  "value" : "Ecuador",
+  "continent" : "AMERICAS",
+  "isEUMember" : false
+}, {
+  "key" : "CUBA",
+  "value" : "Cuba",
+  "continent" : "AMERICAS",
+  "isEUMember" : false
+}, {
+  "key" : "BOLIVIA",
+  "value" : "Bolivia",
+  "continent" : "AMERICAS",
+  "isEUMember" : false
+}, {
+  "key" : "HAITI",
+  "value" : "Haiti",
+  "continent" : "AMERICAS",
+  "isEUMember" : false
+}, {
+  "key" : "DOMINICAN_REPUBLIC",
+  "value" : "Dominican Republic",
+  "continent" : "AMERICAS",
+  "isEUMember" : false
+}, {
+  "key" : "HONDURAS",
+  "value" : "Honduras",
+  "continent" : "AMERICAS",
+  "isEUMember" : false
+}, {
+  "key" : "PARAGUAY",
+  "value" : "Paraguay",
+  "continent" : "AMERICAS",
+  "isEUMember" : false
+}, {
+  "key" : "EL_SALVADOR",
+  "value" : "El Salvador",
+  "continent" : "AMERICAS",
+  "isEUMember" : false
+}, {
+  "key" : "NICARAGUA",
+  "value" : "Nicaragua",
+  "continent" : "AMERICAS",
+  "isEUMember" : false
+}, {
+  "key" : "COSTA_RICA",
+  "value" : "Costa Rica",
+  "continent" : "AMERICAS",
+  "isEUMember" : false
+}, {
+  "key" : "PANAMA",
+  "value" : "Panama",
+  "continent" : "AMERICAS",
+  "isEUMember" : false
+}, {
+  "key" : "PUERTO_RICO",
+  "value" : "Puerto Rico",
+  "continent" : "AMERICAS",
+  "isEUMember" : false
+}, {
+  "key" : "URUGUAY",
+  "value" : "Uruguay",
+  "continent" : "AMERICAS",
+  "isEUMember" : false
+}, {
+  "key" : "JAMAICA",
+  "value" : "Jamaica",
+  "continent" : "AMERICAS",
+  "isEUMember" : false
+}, {
+  "key" : "TRINIDAD_AND_TOBAGO",
+  "value" : "Trinidad And Tobago",
+  "continent" : "AMERICAS",
+  "isEUMember" : false
+}, {
+  "key" : "GUYANA",
+  "value" : "Guyana",
+  "continent" : "AMERICAS",
+  "isEUMember" : false
+}, {
+  "key" : "SURINAME",
+  "value" : "Suriname",
+  "continent" : "AMERICAS",
+  "isEUMember" : false
+}, {
+  "key" : "GUADELOUPE",
+  "value" : "Guadeloupe",
+  "continent" : "AMERICAS",
+  "isEUMember" : false
+}, {
+  "key" : "BAHAMAS",
+  "value" : "Bahamas",
+  "continent" : "AMERICAS",
+  "isEUMember" : false
+}, {
+  "key" : "MARTINIQUE",
+  "value" : "Martinique",
+  "continent" : "AMERICAS",
+  "isEUMember" : false
+}, {
+  "key" : "BELIZE",
+  "value" : "Belize",
+  "continent" : "AMERICAS",
+  "isEUMember" : false
+}, {
+  "key" : "BARBADOS",
+  "value" : "Barbados",
+  "continent" : "AMERICAS",
+  "isEUMember" : false
+}, {
+  "key" : "FRENCH_GUIANA",
+  "value" : "French Guiana",
+  "continent" : "AMERICAS",
+  "isEUMember" : false
+}, {
+  "key" : "SAINT_LUCIA",
+  "value" : "Saint Lucia",
+  "continent" : "AMERICAS",
+  "isEUMember" : false
+}, {
+  "key" : "CURACAO",
+  "value" : "Curacao",
+  "continent" : "AMERICAS",
+  "isEUMember" : false
+}, {
+  "key" : "SAINT_VINCENT_AND_GRENADINES",
+  "value" : "Saint Vincent And Grenadines",
+  "continent" : "AMERICAS",
+  "isEUMember" : false
+}, {
+  "key" : "GRENADA",
+  "value" : "Grenada",
+  "continent" : "AMERICAS",
+  "isEUMember" : false
+}, {
+  "key" : "ARUBA",
+  "value" : "Aruba",
+  "continent" : "AMERICAS",
+  "isEUMember" : false
+}, {
+  "key" : "UNITED_STATES_VIRGIN_ISLANDS",
+  "value" : "United States Virgin Islands",
+  "continent" : "AMERICAS",
+  "isEUMember" : false
+}, {
+  "key" : "ANTIGUA_AND_BARBUDA",
+  "value" : "Antigua And Barbuda",
+  "continent" : "AMERICAS",
+  "isEUMember" : false
+}, {
+  "key" : "CAYMAN_ISLANDS",
+  "value" : "Cayman Islands",
+  "continent" : "AMERICAS",
+  "isEUMember" : false
+}, {
+  "key" : "SAINT_PIERRE_AND_MIQUELON",
+  "value" : "Saint Pierre And Miquelon",
+  "continent" : "AMERICAS",
+  "isEUMember" : false
+}, {
+  "key" : "MONTSERRAT",
+  "value" : "Montserrat",
+  "continent" : "AMERICAS",
+  "isEUMember" : false
+}, {
+  "key" : "FALKLAND_ISLANDS",
+  "value" : "Falkland Islands",
+  "continent" : "AMERICAS",
+  "isEUMember" : false
+}, {
+  "key" : "CHINA",
+  "value" : "China",
+  "continent" : "ASIA",
+  "isEUMember" : false
+}, {
+  "key" : "INDIA",
+  "value" : "India",
+  "continent" : "ASIA",
+  "isEUMember" : false
+}, {
+  "key" : "INDONESIA",
+  "value" : "Indonesia",
+  "continent" : "ASIA",
+  "isEUMember" : false
+}, {
+  "key" : "PAKISTAN",
+  "value" : "Pakistan",
+  "continent" : "ASIA",
+  "isEUMember" : false
+}, {
+  "key" : "BANGLADESH",
+  "value" : "Bangladesh",
+  "continent" : "ASIA",
+  "isEUMember" : false
+}, {
+  "key" : "JAPAN",
+  "value" : "Japan",
+  "continent" : "ASIA",
+  "isEUMember" : false
+}, {
+  "key" : "PHILLIPPINES",
+  "value" : "Phillippines",
+  "continent" : "ASIA",
+  "isEUMember" : false
+}, {
+  "key" : "VIETNAM",
+  "value" : "Vietnam",
+  "continent" : "ASIA",
+  "isEUMember" : false
+}, {
+  "key" : "IRAN",
+  "value" : "Iran",
+  "continent" : "ASIA",
+  "isEUMember" : false
+}, {
+  "key" : "TURKEY",
+  "value" : "Turkey",
+  "continent" : "ASIA",
+  "isEUMember" : false
+}, {
+  "key" : "THAILAND",
+  "value" : "Thailand",
+  "continent" : "ASIA",
+  "isEUMember" : false
+}, {
+  "key" : "MYANMAR",
+  "value" : "Myanmar",
+  "continent" : "ASIA",
+  "isEUMember" : false
+}, {
+  "key" : "SOUTH_KOREA",
+  "value" : "South Korea",
+  "continent" : "ASIA",
+  "isEUMember" : false
+}, {
+  "key" : "IRAQ",
+  "value" : "Iraq",
+  "continent" : "ASIA",
+  "isEUMember" : false
+}, {
+  "key" : "AFGHANISTAN",
+  "value" : "Afghanistan",
+  "continent" : "ASIA",
+  "isEUMember" : false
+}, {
+  "key" : "SAUDI_ARABIA",
+  "value" : "Saudi Arabia",
+  "continent" : "ASIA",
+  "isEUMember" : false
+}, {
+  "key" : "UZBEKISTAN",
+  "value" : "Uzbekistan",
+  "continent" : "ASIA",
+  "isEUMember" : false
+}, {
+  "key" : "MALAYSIA",
+  "value" : "Malaysia",
+  "continent" : "ASIA",
+  "isEUMember" : false
+}, {
+  "key" : "NEPAL",
+  "value" : "Nepal",
+  "continent" : "ASIA",
+  "isEUMember" : false
+}, {
+  "key" : "YEMEN",
+  "value" : "Yemen",
+  "continent" : "ASIA",
+  "isEUMember" : false
+}, {
+  "key" : "NORTH_KOREA",
+  "value" : "North Korea",
+  "continent" : "ASIA",
+  "isEUMember" : false
+}, {
+  "key" : "TAIWAN",
+  "value" : "Taiwan",
+  "continent" : "ASIA",
+  "isEUMember" : false
+}, {
+  "key" : "SRI_LANKA",
+  "value" : "Sri Lanka",
+  "continent" : "ASIA",
+  "isEUMember" : false
+}, {
+  "key" : "SYRIA",
+  "value" : "Syria",
+  "continent" : "ASIA",
+  "isEUMember" : false
+}, {
+  "key" : "KAZAKHSTAN",
+  "value" : "Kazakhstan",
+  "continent" : "ASIA",
+  "isEUMember" : false
+}, {
+  "key" : "CAMBODIA",
+  "value" : "Cambodia",
+  "continent" : "ASIA",
+  "isEUMember" : false
+}, {
+  "key" : "AZERBAIJAN",
+  "value" : "Azerbaijan",
+  "continent" : "ASIA",
+  "isEUMember" : false
+}, {
+  "key" : "JORDAN",
+  "value" : "Jordan",
+  "continent" : "ASIA",
+  "isEUMember" : false
+}, {
+  "key" : "UNITED_ARAB_EMIRATES",
+  "value" : "United Arab Emirates",
+  "continent" : "ASIA",
+  "isEUMember" : false
+}, {
+  "key" : "TAJIKISTAN",
+  "value" : "Tajikistan",
+  "continent" : "ASIA",
+  "isEUMember" : false
+}, {
+  "key" : "ISREAL",
+  "value" : "Isreal",
+  "continent" : "ASIA",
+  "isEUMember" : false
+}, {
+  "key" : "HONG_KONG",
+  "value" : "Hong Kong",
+  "continent" : "ASIA",
+  "isEUMember" : false
+}, {
+  "key" : "LAOS",
+  "value" : "Laos",
+  "continent" : "ASIA",
+  "isEUMember" : false
+}, {
+  "key" : "LEBANON",
+  "value" : "Lebanon",
+  "continent" : "ASIA",
+  "isEUMember" : false
+}, {
+  "key" : "KYRGYZSTAN",
+  "value" : "Kyrgyzstan",
+  "continent" : "ASIA",
+  "isEUMember" : false
+}, {
+  "key" : "TURKMENISTAN",
+  "value" : "Turkmenistan",
+  "continent" : "ASIA",
+  "isEUMember" : false
+}, {
+  "key" : "SINGAPORE",
+  "value" : "Singapore",
+  "continent" : "ASIA",
+  "isEUMember" : false
+}, {
+  "key" : "PALESTINE",
+  "value" : "Palestine",
+  "continent" : "ASIA",
+  "isEUMember" : false
+}, {
+  "key" : "OMAN",
+  "value" : "Oman",
+  "continent" : "ASIA",
+  "isEUMember" : false
+}, {
+  "key" : "KUWAIT",
+  "value" : "Kuwait",
+  "continent" : "ASIA",
+  "isEUMember" : false
+}, {
+  "key" : "GEORGIA",
+  "value" : "Georgia",
+  "continent" : "ASIA",
+  "isEUMember" : false
+}, {
+  "key" : "MONGOLIA",
+  "value" : "Mongolia",
+  "continent" : "ASIA",
+  "isEUMember" : false
+}, {
+  "key" : "ARMENIA",
+  "value" : "Armenia",
+  "continent" : "ASIA",
+  "isEUMember" : false
+}, {
+  "key" : "QATAR",
+  "value" : "Qatar",
+  "continent" : "ASIA",
+  "isEUMember" : false
+}, {
+  "key" : "BAHRAIN",
+  "value" : "Bahrain",
+  "continent" : "ASIA",
+  "isEUMember" : false
+}, {
+  "key" : "EAST_TIMOR",
+  "value" : "East Timor",
+  "continent" : "ASIA",
+  "isEUMember" : false
+}, {
+  "key" : "BHUTAN",
+  "value" : "Bhutan",
+  "continent" : "ASIA",
+  "isEUMember" : false
+}, {
+  "key" : "AUSTRIA",
+  "value" : "Austria",
+  "continent" : "EUROPE",
+  "isEUMember" : true
+}, {
+  "key" : "BELGIUM",
+  "value" : "Belgium",
+  "continent" : "EUROPE",
+  "isEUMember" : true
+}, {
+  "key" : "BULGARIA",
+  "value" : "Bulgaria",
+  "continent" : "EUROPE",
+  "isEUMember" : true
+}, {
+  "key" : "CROATIA",
+  "value" : "Croatia",
+  "continent" : "EUROPE",
+  "isEUMember" : true
+}, {
+  "key" : "CYPRUS",
+  "value" : "Cyprus",
+  "continent" : "EUROPE",
+  "isEUMember" : true
+}, {
+  "key" : "CZECH_REPUBLIC",
+  "value" : "Czech Republic",
+  "continent" : "EUROPE",
+  "isEUMember" : true
+}, {
+  "key" : "DENMARK",
+  "value" : "Denmark",
+  "continent" : "EUROPE",
+  "isEUMember" : true
+}, {
+  "key" : "ESTONIA",
+  "value" : "Estonia",
+  "continent" : "EUROPE",
+  "isEUMember" : true
+}, {
+  "key" : "FINLAND",
+  "value" : "Finland",
+  "continent" : "EUROPE",
+  "isEUMember" : true
+}, {
+  "key" : "FRANCE",
+  "value" : "France",
+  "continent" : "EUROPE",
+  "isEUMember" : true
+}, {
+  "key" : "GERMANY",
+  "value" : "Germany",
+  "continent" : "EUROPE",
+  "isEUMember" : true
+}, {
+  "key" : "GREECE",
+  "value" : "Greece",
+  "continent" : "EUROPE",
+  "isEUMember" : true
+}, {
+  "key" : "HUNGARY",
+  "value" : "Hungary",
+  "continent" : "EUROPE",
+  "isEUMember" : true
+}, {
+  "key" : "IRELAND",
+  "value" : "Ireland",
+  "continent" : "EUROPE",
+  "isEUMember" : true
+}, {
+  "key" : "ITALY",
+  "value" : "Italy",
+  "continent" : "EUROPE",
+  "isEUMember" : true
+}, {
+  "key" : "LATVIA",
+  "value" : "Latvia",
+  "continent" : "EUROPE",
+  "isEUMember" : true
+}, {
+  "key" : "LITHUANIA",
+  "value" : "Lithuania",
+  "continent" : "EUROPE",
+  "isEUMember" : true
+}, {
+  "key" : "LUXEMBOURG",
+  "value" : "Luxembourg",
+  "continent" : "EUROPE",
+  "isEUMember" : true
+}, {
+  "key" : "MALTA",
+  "value" : "Malta",
+  "continent" : "EUROPE",
+  "isEUMember" : true
+}, {
+  "key" : "NETHERLANDS",
+  "value" : "Netherlands",
+  "continent" : "EUROPE",
+  "isEUMember" : true
+}, {
+  "key" : "POLAND",
+  "value" : "Poland",
+  "continent" : "EUROPE",
+  "isEUMember" : true
+}, {
+  "key" : "PORTUGAL",
+  "value" : "Portugal",
+  "continent" : "EUROPE",
+  "isEUMember" : true
+}, {
+  "key" : "ROMANIA",
+  "value" : "Romania",
+  "continent" : "EUROPE",
+  "isEUMember" : true
+}, {
+  "key" : "SLOVAKIA",
+  "value" : "Slovakia",
+  "continent" : "EUROPE",
+  "isEUMember" : true
+}, {
+  "key" : "SLOVENIA",
+  "value" : "Slovenia",
+  "continent" : "EUROPE",
+  "isEUMember" : true
+}, {
+  "key" : "SPAIN",
+  "value" : "Spain",
+  "continent" : "EUROPE",
+  "isEUMember" : true
+}, {
+  "key" : "SWEDEN",
+  "value" : "Sweden",
+  "continent" : "EUROPE",
+  "isEUMember" : true
+}, {
+  "key" : "UNITED_KINGDOM",
+  "value" : "United Kingdom",
+  "continent" : "EUROPE",
+  "isEUMember" : true
+}, {
+  "key" : "RUSSIA",
+  "value" : "Russia",
+  "continent" : "EUROPE",
+  "isEUMember" : false
+}, {
+  "key" : "UKRAINE",
+  "value" : "Ukraine",
+  "continent" : "EUROPE",
+  "isEUMember" : false
+}, {
+  "key" : "BELARUS",
+  "value" : "Belarus",
+  "continent" : "EUROPE",
+  "isEUMember" : false
+}, {
+  "key" : "SERBIA",
+  "value" : "Serbia",
+  "continent" : "EUROPE",
+  "isEUMember" : false
+}, {
+  "key" : "SWITZERLAND",
+  "value" : "Switzerland",
+  "continent" : "EUROPE",
+  "isEUMember" : false
+}, {
+  "key" : "NORWAY",
+  "value" : "Norway",
+  "continent" : "EUROPE",
+  "isEUMember" : false
+}, {
+  "key" : "MOLDOVA",
+  "value" : "Moldova",
+  "continent" : "EUROPE",
+  "isEUMember" : false
+}, {
+  "key" : "BOSNIA_AND_HERZEGOVINA",
+  "value" : "Bosnia And Herzegovina",
+  "continent" : "EUROPE",
+  "isEUMember" : false
+}, {
+  "key" : "ALBANIA",
+  "value" : "Albania",
+  "continent" : "EUROPE",
+  "isEUMember" : false
+}, {
+  "key" : "REPUBLIC_OF_MACEDONIA",
+  "value" : "Republic Of Macedonia",
+  "continent" : "EUROPE",
+  "isEUMember" : false
+}, {
+  "key" : "MONTENEGRO",
+  "value" : "Montenegro",
+  "continent" : "EUROPE",
+  "isEUMember" : false
+}, {
+  "key" : "ICELAND",
+  "value" : "Iceland",
+  "continent" : "EUROPE",
+  "isEUMember" : false
+}, {
+  "key" : "GUERNSEY_AND_JERSEY",
+  "value" : "Guernsey And Jersey",
+  "continent" : "EUROPE",
+  "isEUMember" : false
+}, {
+  "key" : "ISLE_OF_MAN",
+  "value" : "Isle Of Man",
+  "continent" : "EUROPE",
+  "isEUMember" : false
+}, {
+  "key" : "ANDORRA",
+  "value" : "Andorra",
+  "continent" : "EUROPE",
+  "isEUMember" : false
+}, {
+  "key" : "FARCE_ISLANDS",
+  "value" : "Farce Islands",
+  "continent" : "EUROPE",
+  "isEUMember" : false
+}, {
+  "key" : "MONACO",
+  "value" : "Monaco",
+  "continent" : "EUROPE",
+  "isEUMember" : false
+}, {
+  "key" : "LIECHTENSTEIN",
+  "value" : "Liechtenstein",
+  "continent" : "EUROPE",
+  "isEUMember" : false
+}, {
+  "key" : "GILBRALTAR",
+  "value" : "Gilbraltar",
+  "continent" : "EUROPE",
+  "isEUMember" : false
+}, {
+  "key" : "SAN_MARINO",
+  "value" : "San Marino",
+  "continent" : "EUROPE",
+  "isEUMember" : false
+}, {
+  "key" : "VATICAN_CITY",
+  "value" : "Vatican City",
+  "continent" : "EUROPE",
+  "isEUMember" : false
+}, {
+  "key" : "AUSTRAILIA",
+  "value" : "Austrailia",
+  "continent" : "OCEANIA",
+  "isEUMember" : false
+}, {
+  "key" : "PAPUA_NEW_GUINEA",
+  "value" : "Papua New Guinea",
+  "continent" : "OCEANIA",
+  "isEUMember" : false
+}, {
+  "key" : "NEW_ZEALAND",
+  "value" : "New Zealand",
+  "continent" : "OCEANIA",
+  "isEUMember" : false
+}, {
+  "key" : "FIJI",
+  "value" : "Fiji",
+  "continent" : "OCEANIA",
+  "isEUMember" : false
+}, {
+  "key" : "SOLOMON_ISLANDS",
+  "value" : "Solomon Islands",
+  "continent" : "OCEANIA",
+  "isEUMember" : false
+}, {
+  "key" : "FRENCH_POLYNESIA",
+  "value" : "French Polynesia",
+  "continent" : "OCEANIA",
+  "isEUMember" : false
+}, {
+  "key" : "NEW_CALEDONIA",
+  "value" : "New Caledonia",
+  "continent" : "OCEANIA",
+  "isEUMember" : false
+}, {
+  "key" : "VANUATU",
+  "value" : "Vanuatu",
+  "continent" : "OCEANIA",
+  "isEUMember" : false
+}, {
+  "key" : "SAMOA",
+  "value" : "Samoa",
+  "continent" : "OCEANIA",
+  "isEUMember" : false
+}, {
+  "key" : "GUAM",
+  "value" : "Guam",
+  "continent" : "OCEANIA",
+  "isEUMember" : false
+}, {
+  "key" : "KIRBATI",
+  "value" : "Kirbati",
+  "continent" : "OCEANIA",
+  "isEUMember" : false
+}, {
+  "key" : "TONGA",
+  "value" : "Tonga",
+  "continent" : "OCEANIA",
+  "isEUMember" : false
+}, {
+  "key" : "FEDERATED_STATES_OF_MICRONESIA",
+  "value" : "Federated States Of Micronesia",
+  "continent" : "OCEANIA",
+  "isEUMember" : false
+}, {
+  "key" : "AMERICA_SAMOA",
+  "value" : "America Samoa",
+  "continent" : "OCEANIA",
+  "isEUMember" : false
+}, {
+  "key" : "NORTHERN_MARIANA_ISLANDS",
+  "value" : "Northern Mariana Islands",
+  "continent" : "OCEANIA",
+  "isEUMember" : false
+}, {
+  "key" : "MARSHALL_ISLANDS",
+  "value" : "Marshall Islands",
+  "continent" : "OCEANIA",
+  "isEUMember" : false
+}, {
+  "key" : "PALAU",
+  "value" : "Palau",
+  "continent" : "OCEANIA",
+  "isEUMember" : false
+}, {
+  "key" : "COOK_ISLANDS",
+  "value" : "Cook Islands",
+  "continent" : "OCEANIA",
+  "isEUMember" : false
+}, {
+  "key" : "WALLIS_AND_FUTUNA",
+  "value" : "Wallis And Futuna",
+  "continent" : "OCEANIA",
+  "isEUMember" : false
+}, {
+  "key" : "NAURU",
+  "value" : "Nauru",
+  "continent" : "OCEANIA",
+  "isEUMember" : false
+}, {
+  "key" : "TUVALU",
+  "value" : "Tuvalu",
+  "continent" : "OCEANIA",
+  "isEUMember" : false
+}, {
+  "key" : "NIUE",
+  "value" : "Niue",
+  "continent" : "OCEANIA",
+  "isEUMember" : false
+}, {
+  "key" : "TOKELAU",
+  "value" : "Tokelau",
+  "continent" : "OCEANIA",
+  "isEUMember" : false
+}, {
+  "key" : "EGYPT",
+  "value" : "Egypt",
+  "continent" : "AFRICA",
+  "isEUMember" : false
+}, {
+  "key" : "SOUTH_AFRICA",
+  "value" : "South Africa",
+  "continent" : "AFRICA",
+  "isEUMember" : false
+}, {
+  "key" : "KENYA",
+  "value" : "Kenya",
+  "continent" : "AFRICA",
+  "isEUMember" : false
+}, {
+  "key" : "UGANDA",
+  "value" : "Uganda",
+  "continent" : "AFRICA",
+  "isEUMember" : false
+}, {
+  "key" : "ALGERIA",
+  "value" : "Algeria",
+  "continent" : "AFRICA",
+  "isEUMember" : false
+}, {
+  "key" : "SUDAN",
+  "value" : "Sudan",
+  "continent" : "AFRICA",
+  "isEUMember" : false
+}, {
+  "key" : "MOROCCO",
+  "value" : "Morocco",
+  "continent" : "AFRICA",
+  "isEUMember" : false
+}, {
+  "key" : "ANGOLA",
+  "value" : "Angola",
+  "continent" : "AFRICA",
+  "isEUMember" : false
+}, {
+  "key" : "MOZAMBIQUE",
+  "value" : "Mozambique",
+  "continent" : "AFRICA",
+  "isEUMember" : false
+}, {
+  "key" : "GHANA",
+  "value" : "Ghana",
+  "continent" : "AFRICA",
+  "isEUMember" : false
+}, {
+  "key" : "MADAGASCAR",
+  "value" : "Madagascar",
+  "continent" : "AFRICA",
+  "isEUMember" : false
+}, {
+  "key" : "IVORY_COAST",
+  "value" : "Ivory Coast",
+  "continent" : "AFRICA",
+  "isEUMember" : false
+}, {
+  "key" : "CAMEROON",
+  "value" : "Cameroon",
+  "continent" : "AFRICA",
+  "isEUMember" : false
+}, {
+  "key" : "NIGER",
+  "value" : "Niger",
+  "continent" : "AFRICA",
+  "isEUMember" : false
+}, {
+  "key" : "BURKINA_FASO",
+  "value" : "Burkina Faso",
+  "continent" : "AFRICA",
+  "isEUMember" : false
+}, {
+  "key" : "MALAWI",
+  "value" : "Malawi",
+  "continent" : "AFRICA",
+  "isEUMember" : false
+}, {
+  "key" : "MALI",
+  "value" : "Mali",
+  "continent" : "AFRICA",
+  "isEUMember" : false
+}, {
+  "key" : "ZAMBIA",
+  "value" : "Zambia",
+  "continent" : "AFRICA",
+  "isEUMember" : false
+}, {
+  "key" : "ZIMBABWE",
+  "value" : "Zimbabwe",
+  "continent" : "AFRICA",
+  "isEUMember" : false
+}, {
+  "key" : "SENEGAL",
+  "value" : "Senegal",
+  "continent" : "AMERICAS",
+  "isEUMember" : false
+}, {
+  "key" : "CHAD",
+  "value" : "Chad",
+  "continent" : "AFRICA",
+  "isEUMember" : false
+}, {
+  "key" : "SOMALIA",
+  "value" : "Somalia",
+  "continent" : "AFRICA",
+  "isEUMember" : false
+}, {
+  "key" : "GUINEA",
+  "value" : "Guinea",
+  "continent" : "AFRICA",
+  "isEUMember" : false
+}, {
+  "key" : "SOUTH_SUDAN",
+  "value" : "South Sudan",
+  "continent" : "AMERICAS",
+  "isEUMember" : false
+}, {
+  "key" : "RWANDA",
+  "value" : "Rwanda",
+  "continent" : "AFRICA",
+  "isEUMember" : false
+}, {
+  "key" : "TUNISIA",
+  "value" : "Tunisia",
+  "continent" : "AFRICA",
+  "isEUMember" : false
+}, {
+  "key" : "BENIN",
+  "value" : "Benin",
+  "continent" : "AFRICA",
+  "isEUMember" : false
+}, {
+  "key" : "BURUNDI",
+  "value" : "Burundi",
+  "continent" : "AFRICA",
+  "isEUMember" : false
+}, {
+  "key" : "TOGO",
+  "value" : "Togo",
+  "continent" : "AFRICA",
+  "isEUMember" : false
+}, {
+  "key" : "SIERRA_LEONE",
+  "value" : "Sierra Leone",
+  "continent" : "AFRICA",
+  "isEUMember" : false
+}, {
+  "key" : "LIBYA",
+  "value" : "Libya",
+  "continent" : "AFRICA",
+  "isEUMember" : false
+}, {
+  "key" : "CONGO",
+  "value" : "Congo",
+  "continent" : "AFRICA",
+  "isEUMember" : false
+}, {
+  "key" : "ERTREA",
+  "value" : "Ertrea",
+  "continent" : "AFRICA",
+  "isEUMember" : false
+}, {
+  "key" : "LIBERIA",
+  "value" : "Liberia",
+  "continent" : "AFRICA",
+  "isEUMember" : false
+}, {
+  "key" : "CENTRAL_AFRICAN_REPUBLIC",
+  "value" : "Central African Republic",
+  "continent" : "AFRICA",
+  "isEUMember" : false
+} ]
