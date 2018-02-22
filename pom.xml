@@ -47,6 +47,10 @@
 			<artifactId>aws-lambda-java-events</artifactId>
 			<version>1.3.0</version>
 			<exclusions>
+			     <exclusion>
+                    <groupId>com.fasterxml.jackson.core</groupId>
+                    <artifactId>jackson-databind</artifactId>
+			     </exclusion>
 			</exclusions>
 		</dependency>
 
@@ -127,11 +131,11 @@
 				</executions>
 			</plugin>
 
-			<!-- FindBugs Static Analysis -->
+			<!-- SpotBugs Static Analysis -->
 			<plugin>
-				<groupId>org.codehaus.mojo</groupId>
-				<artifactId>findbugs-maven-plugin</artifactId>
-				<version>3.0.1</version>
+                <groupId>com.github.spotbugs</groupId>
+                <artifactId>spotbugs-maven-plugin</artifactId>
+                <version>3.1.1</version>
 				<configuration>
 					<effort>Max</effort>
 					<threshold>Low</threshold>
@@ -142,11 +146,19 @@
 						<plugin>
 							<groupId>com.h3xstream.findsecbugs</groupId>
 							<artifactId>findsecbugs-plugin</artifactId>
-							<version>LATEST</version> <!-- Auto-update to the latest stable -->
+							<version>LATEST</version> 
 						</plugin>
 					</plugins>
 				</configuration>
-			</plugin>
+                <dependencies>
+                  <!-- overwrite dependency on spotbugs if you want to specify the version of spotbugs -->
+                  <dependency>
+                    <groupId>com.github.spotbugs</groupId>
+                    <artifactId>spotbugs</artifactId>
+					<version>LATEST</version> 
+                  </dependency>
+                </dependencies>
+            </plugin>
 
 			<!-- OWASP Dependency Check -->
 			<plugin>
@@ -172,9 +184,11 @@
 				<artifactId>maven-surefire-plugin</artifactId>
 				<version>2.20.1</version>
 				<configuration>
+				    <parallel>both</parallel>
+                    <threadCount>10</threadCount>
+                    <forkMode>once</forkMode>
 				    <excludes>
-				        <exclude>**/*IntTest.java</exclude>
-				        <exclude>**/*ManualTest.java</exclude>
+				        <exclude>**/*IT.java</exclude>
 				    </excludes>
 					<systemProperties>
 						<property>

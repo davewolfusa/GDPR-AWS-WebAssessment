@@ -61,7 +61,7 @@ public @Data class GDPRAssessmentInfo implements Serializable {
 	public String formatForDocument() {
 		StringBuilder sb = new StringBuilder();
 		sb.append(LINE_END);
-		sb.append("HQ Location: " + this.hqLocation.ProperName() + LINE_END);
+		sb.append("HQ Location: " + this.hqLocation.getProperName() + LINE_END);
 		
 		sb.append(LINE_END);
 		// Office Locations

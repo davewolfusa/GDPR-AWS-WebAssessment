@@ -29,9 +29,16 @@
         </executions>
       </plugin>
       <plugin>
-        <groupId>org.codehaus.mojo</groupId>
-        <artifactId>findbugs-maven-plugin</artifactId>
-        <version>3.0.1</version>
+        <groupId>com.github.spotbugs</groupId>
+        <artifactId>spotbugs-maven-plugin</artifactId>
+        <version>3.1.1</version>
+        <dependencies>
+          <dependency>
+            <groupId>com.github.spotbugs</groupId>
+            <artifactId>spotbugs</artifactId>
+            <version>LATEST</version>
+          </dependency>
+        </dependencies>
         <configuration>
           <effort>Max</effort>
           <threshold>Low</threshold>
@@ -68,9 +75,11 @@
         <artifactId>maven-surefire-plugin</artifactId>
         <version>2.20.1</version>
         <configuration>
+          <parallel>both</parallel>
+          <threadCount>10</threadCount>
+          <forkMode>once</forkMode>
           <excludes>
-            <exclude>**/*IntTest.java</exclude>
-            <exclude>**/*ManualTest.java</exclude>
+            <exclude>**/*IT.java</exclude>
           </excludes>
           <systemProperties>
             <property>

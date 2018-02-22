@@ -79,7 +79,7 @@ public enum CountryEnum {
     		return this.continent;
     }
     
-    public String ProperName() {
+    public String getProperName() {
     	    return WordUtils.capitalizeFully(this.name().replaceAll("_", " "));
     }
 }
