@@ -13,7 +13,7 @@ import com.americancsm.gdpr.webassess.util.BuildTestObjects;
 /**
  * A simple test harness for locally invoking your Lambda function handler.
  */
-public class LambdaFunctionHandlerTest {
+public class LambdaFunctionHandlerIntTest {
 
     private static GDPRAssessmentRequest input;
 
