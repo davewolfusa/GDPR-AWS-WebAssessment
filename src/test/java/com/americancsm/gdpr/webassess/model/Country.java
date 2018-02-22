@@ -4,8 +4,8 @@ import lombok.Data;
 
 public @Data class Country {
 	
-	private String key;
-	private String value;
+	private String id;
+	private String name;
 	private String continent;
 	private Boolean isEUMember;
 

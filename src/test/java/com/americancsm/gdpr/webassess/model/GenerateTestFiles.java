@@ -85,8 +85,8 @@ public class GenerateTestFiles {
 		ArrayList<Country> countryList = new ArrayList<Country>();
 		for (CountryEnum enumItem : CountryEnum.values()) {
 			Country country = new Country();
-			country.setKey(enumItem.toString());
-			country.setValue(enumItem.ProperName()); 
+			country.setId(enumItem.toString());
+			country.setName(enumItem.ProperName()); 
 			country.setContinent(enumItem.getContinent().toString()); 
 			country.setIsEUMember(enumItem.isEUMemberCountry());
 			countryList.add(country);

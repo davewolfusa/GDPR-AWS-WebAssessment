@@ -5,7 +5,7 @@
     "title" : "Secure DevOps Consultant",
     "email" : "dave.wolf@americancsm.com",
     "phone" : "(303) 956-9106",
-    "submissionDate" : 1517248377077,
+    "submissionDate" : 1519246220609,
     "companyName" : "Metageek Inc.",
     "companyAddress" : "2356 Clermont St., Denver, CO 80207"
   },
@@ -26,7 +26,6 @@
     "isPrivacyShieldCertified" : false,
     "certifications" : [ "PCI" ],
     "dataClassificationLevels" : 1,
-    "acsmComplexityValue" : 1,
-    "logger" : null
+    "acsmComplexityValue" : 1
   }
 }
