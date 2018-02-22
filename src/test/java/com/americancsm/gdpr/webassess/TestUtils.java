@@ -46,7 +46,7 @@ public class TestUtils {
         mapper.registerModule(new TestJacksonMapperModule());
 
         snsEventMapper.configure(JsonParser.Feature.ALLOW_COMMENTS, true);
-        snsEventMapper.setPropertyNamingStrategy(PropertyNamingStrategy.PASCAL_CASE_TO_CAMEL_CASE);
+        snsEventMapper.setPropertyNamingStrategy(PropertyNamingStrategy.UPPER_CAMEL_CASE);
         snsEventMapper.registerModule(new TestJacksonMapperModule());
 
         dynamodbEventMapper.configure(JsonParser.Feature.ALLOW_COMMENTS, true);
