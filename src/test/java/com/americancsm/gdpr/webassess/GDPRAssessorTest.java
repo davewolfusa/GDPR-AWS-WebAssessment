@@ -4,9 +4,10 @@ import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.fail;
 
+import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
-import java.nio.file.Paths;
+import java.nio.file.Path;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -15,48 +16,36 @@ import com.americancsm.gdpr.webassess.model.GDPRAssessmentRequest;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 public class GDPRAssessorTest {
-	private String testDirectory = "src/test/resources";
 
-	/*
-	@Before
-	public void setUp() throws Exception {
-		testDirectory = 
-			System.getProperty("testResourcesDirectory");
-	}
-	*/
-
+	private ClassLoader classLoader = getClass().getClassLoader();
+	
 	@Test
 	public void testComputeComplexityValue1() throws Exception {
-	    String testFilePath = testDirectory + "/testFile1.json";
-		byte[] jsonData = Files.readAllBytes(Paths.get(testFilePath));
+		byte[] jsonData = Files.readAllBytes(this.getFilePath("testFile1.json"));
 		testFunction(jsonData);
 	}
 
 	@Test
 	public void testComputeComplexityValue2() throws Exception {
-		String testFilePath = testDirectory + "/testFile2.json";
-		byte[] jsonData = Files.readAllBytes(Paths.get(testFilePath));
+		byte[] jsonData = Files.readAllBytes(this.getFilePath("testFile2.json"));
 		testFunction(jsonData);
 	}
 
 	@Test
 	public void testComputeComplexityValue3() throws Exception {
-		String testFilePath = testDirectory + "/testFile3.json";
-		byte[] jsonData = Files.readAllBytes(Paths.get(testFilePath));
+		byte[] jsonData = Files.readAllBytes(this.getFilePath("testFile3.json"));
 		testFunction(jsonData);
 	}
 
 	@Test
 	public void testComputeComplexityValue4() throws Exception {
-		String testFilePath = testDirectory + "/testFile4.json";
-		byte[] jsonData = Files.readAllBytes(Paths.get(testFilePath));
+		byte[] jsonData = Files.readAllBytes(this.getFilePath("testFile4.json"));
 		testFunction(jsonData);
 	}
 
 	@Test
 	public void testComputeComplexityValue5() throws Exception {
-		String testFilePath = testDirectory + "/testFile5.json";
-		byte[] jsonData = Files.readAllBytes(Paths.get(testFilePath));
+		byte[] jsonData = Files.readAllBytes(this.getFilePath("testFile5.json"));
 		testFunction(jsonData);
 	}
 	
@@ -78,7 +67,10 @@ public class GDPRAssessorTest {
     		Integer result = assessor.computeComplexityValue();
     		assertNotNull(result);
     		assertTrue(result > 0 && result <= 100);
-		
 	}
-
+	
+	private Path getFilePath(String fileName) {
+		File file = new File(classLoader.getResource(fileName).getFile());
+		return file.toPath();
+	}
 }

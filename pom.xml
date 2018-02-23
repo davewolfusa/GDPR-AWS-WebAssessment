@@ -192,8 +192,8 @@
 				    </excludes>
 					<systemProperties>
 						<property>
-							<name>testResourcesDirectory</name>
-							<value>${project.basedir}/src/test/resources</value>
+							<name>basedir</name>
+							<value>${project.basedir}</value>
 						</property>
 						<property>
 							<name>testOutputDirectory</name>
