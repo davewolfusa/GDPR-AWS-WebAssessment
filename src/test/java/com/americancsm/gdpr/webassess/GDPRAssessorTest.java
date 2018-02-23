@@ -15,16 +15,10 @@ import com.americancsm.gdpr.webassess.model.GDPRAssessmentRequest;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 public class GDPRAssessorTest {
-	private String testDirectory = null;
+	private String testDirectory = "src/test/resources/";
 
 	@Before
 	public void setUp() throws Exception {
-		testDirectory = 
-			System.getProperty("basedir") +
-			    "/src/test/resources/";
-		if (testDirectory == null) {
-			testDirectory = "src/test/resources/";
-		}
 	}
 
 	@Test
