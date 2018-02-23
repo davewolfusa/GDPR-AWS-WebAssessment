@@ -1,19 +1,24 @@
 {
-"requestor":
-{"submissionDate":1516944135272,
-"firstName":"David","lastName":"Wolf",
-"title":"Consultant","phone":"303-999-3333","email":"dave.wolf@gmail.com",
-"companyName":"acsm","companyAddress":"111 main st."},
-"assessmentInfo":
-{"hqLocation":"SPAIN","servicedCountries":["SPAIN"],
-"officeCount":"3","officeLocations":["SPAIN"],
-"employeeCount":"15","employeeLocations":["SPAIN"],
-"contractorCount":"5","contractorLocations":["UNITED_STATES"],
-"productTypeCount":"4","customerCount":"2",
-"iaasProviderCount":"1","iaasProviders":["AMAZON_WEB_SERVICES"],
-"iaasProviderLocations":["UNITED_STATES"],
-"isPrivacyShieldCertified":true,
-"certifications" : [ "HIPPA" ],
-"dataClassificationLevels":4
-}
+    "requestor":
+    {
+        "submissionDate":1516944135272,
+        "firstName":"David","lastName":"Wolf",
+        "title":"Consultant","phone":"303-999-3333",
+        "email":"dave.wolf@gmail.com",
+        "companyName":"acsm",
+        "companyAddress":"111 Main St., Denver, CO 80207 USA"
+    },
+        "assessmentInfo":
+    {
+        "hqLocation":"SPAIN","servicedCountries":["SPAIN"],
+        "officeCount":"3","officeLocations":["SPAIN"],
+        "employeeCount":"15","employeeLocations":["SPAIN"],
+        "contractorCount":"5","contractorLocations":["UNITED_STATES"],
+        "productTypeCount":"4","customerCount":"2",
+        "iaasProviderCount":"1","iaasProviders":["AMAZON_WEB_SERVICES"],
+        "iaasProviderLocations":["UNITED_STATES"],
+        "isPrivacyShieldCertified":true,
+        "certifications" : [ "HIPAA" ],
+        "dataClassificationLevels":4
+    }
 }

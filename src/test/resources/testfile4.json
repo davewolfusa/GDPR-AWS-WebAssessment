@@ -8,4 +8,4 @@
 "employeeCount":"15","employeeLocations":["SPAIN"],"contractorCount":"5","contractorLocations":["SPAIN"],
 "productTypeCount":"4","customerCount":"2",
 "iaasProviderCount":"1","iaasProviders":["AMAZON_WEB_SERVICES"],"iaasProviderLocations":["SPAIN","RUSSIA"],
-"isPrivacyShieldCertified":false,"certifications":["US_FEDRAL"],"dataClassificationLevels":6}}
+"isPrivacyShieldCertified":false,"certifications":["US_FEDERAL"],"dataClassificationLevels":6}}

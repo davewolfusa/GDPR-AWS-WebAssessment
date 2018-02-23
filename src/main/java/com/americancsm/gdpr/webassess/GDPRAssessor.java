@@ -10,19 +10,19 @@ import com.amazonaws.services.lambda.runtime.LambdaLogger;
 import com.americancsm.gdpr.webassess.model.CertificationEnum;
 import com.americancsm.gdpr.webassess.model.CountryEnum;
 import com.americancsm.gdpr.webassess.model.GDPRAssessmentInfo;
-import com.americancsm.gdpr.webassess.util.AWSContextLocator;
+// import com.americancsm.gdpr.webassess.util.AWSContextLocator;
 
 import lombok.Data;
 
 public @Data class GDPRAssessor {
 	private static final int TOTAL_NUMBER_OF_EU_COUNTRIES = 27;
 	private GDPRAssessmentInfo message;
-	private LambdaLogger logger;
+	// private LambdaLogger logger;
 	
 	public GDPRAssessor(GDPRAssessmentInfo message) {
 		this.message = message;
-		AWSContextLocator locator = AWSContextLocator.getInstance();
-		logger = locator.getContext().getLogger();
+		// AWSContextLocator locator = AWSContextLocator.getInstance();
+		// logger = locator.getContext().getLogger();
 	}
 
 	public Integer computeComplexityValue() {
@@ -43,20 +43,21 @@ public @Data class GDPRAssessor {
 		}
 		
 		Double employeeCountRanking = 
-			EmployeeLevelEnum.computeRanking(this.message.getEmployeeCount() + 
-						                     this.message.getContractorCount()); 
-		logger.log("Employee Count Ranking: " + employeeCountRanking + "\n");
+			EmployeeLevelEnum.computeRanking(message.getEmployeeCount() + message.getContractorCount()); 
+		// logger.log("Employee Count Ranking: " + employeeCountRanking + "\n");
 		
 		Integer officesInEUCountries     = numberOfEUCountries(message.getOfficeLocations());
-		logger.log("EU Offices: " + officesInEUCountries + "\n");
+		// logger.log("EU Offices: " + officesInEUCountries + "\n");
 		Integer employeesInEUCountries   = numberOfEUCountries(message.getEmployeeLocations());
-		logger.log("EU Employees: " + employeesInEUCountries + "\n");
-		Integer contractorsInEUCountries = numberOfEUCountries(message.getContractorLocations());
-		logger.log("EU Contractors: " + contractorsInEUCountries + "\n");
+		// logger.log("EU Employees: " + employeesInEUCountries + "\n");
+		Integer contractorsInEUCountries = 
+				message.getContractorCount() > 0 ? numberOfEUCountries(message.getContractorLocations()) : 0;
+		// logger.log("EU Contractors: " + contractorsInEUCountries + "\n");
         	Integer servicedEUCountries      = numberOfEUCountries(message.getServicedCountries());
-		logger.log("EU serviced countries: " + servicedEUCountries + "\n");
-        	Integer iaasEUCountries          = numberOfEUCountries(message.getIaasProviderLocations());
-		logger.log("EU IAAS Provider countries: " + iaasEUCountries + "\n");
+		// logger.log("EU serviced countries: " + servicedEUCountries + "\n");
+        	Integer iaasEUCountries          = 
+        			message.getIaasProviderCount() > 0 ? numberOfEUCountries(message.getIaasProviderLocations()) : 0;
+		// logger.log("EU IAAS Provider countries: " + iaasEUCountries + "\n");
 		
 		Set<String> uniqueEUCountries = getSetOfEUCountries(message);
         	
@@ -66,8 +67,8 @@ public @Data class GDPRAssessor {
 				(contractorsInEUCountries > 0 ? 1 : 0) +
 				(servicedEUCountries > 0 ? 1 : 0) +
 				(iaasEUCountries > 0 ? 1 : 0);
-		logger.log("EU countries weight: " + countriesWeight + "\n");
-		
+		// logger.log("EU countries weight: " + countriesWeight + "\n");
+		/*
 		Double totalEUCountries = 
 		    			(Double) ((
             		    		officesInEUCountries +
@@ -76,21 +77,22 @@ public @Data class GDPRAssessor {
             		    		servicedEUCountries +
             		    		iaasEUCountries
             		    	) * 1.0d);
-		logger.log("Total EU countries: " + totalEUCountries + "\n");
+         */
+		// logger.log("Total EU countries: " + totalEUCountries + "\n");
 		
 		Double percentOfEUCountries =
 		    countriesWeight > 0 ? 
 		    	  ( ((double)uniqueEUCountries.size()) / ((double) TOTAL_NUMBER_OF_EU_COUNTRIES ))
 		    	  : 0.0d;
-		logger.log("Percent of EU countries: " + percentOfEUCountries + "\n");
+		// logger.log("Percent of EU countries: " + percentOfEUCountries + "\n");
 		
 		Double productCountRanking = 
 			ProductLevelEnum.computeRanking(this.message.getProductTypeCount());
-		logger.log("Product Type Count Ranking: " + productCountRanking + "\n");
+		// logger.log("Product Type Count Ranking: " + productCountRanking + "\n");
 		
 		Double customerCountRanking = 
 			CustomerLevelEnum.computeRanking(this.message.getCustomerCount());
-		logger.log("Customer Count Ranking: " + customerCountRanking + "\n");
+		// logger.log("Customer Count Ranking: " + customerCountRanking + "\n");
 		
 		Double acsmComplexityValue = Math.ceil(
 			// Apply primary rankings
@@ -106,14 +108,14 @@ public @Data class GDPRAssessor {
 			);
 		acsmComplexityValue += (100.0d - acsmComplexityValue) * percentOfEUCountries;
 		acsmComplexityValue += (100.0d - acsmComplexityValue) * countriesWeight * 0.03d;
-		if (!message.getCertifications()[0].equals(NONE)) {
+		if (certificationCount > 0) {
 			acsmComplexityValue -= acsmComplexityValue * message.getCertifications().length * .05d;
 		}
 		acsmComplexityValue -= acsmComplexityValue * message.getDataClassificationLevels() * .02d;
 		acsmComplexityValue += (100.0d - acsmComplexityValue) * message.getIaasProviderCount() * 
 				((message.getIaasProviderCount() > 1 ?.05d : 0.0d) + 0.02d);
 		
-		logger.log("ACSM Complexity Value: " + acsmComplexityValue.intValue() + "\n");
+		// logger.log("ACSM Complexity Value: " + acsmComplexityValue.intValue() + "\n");
 		return acsmComplexityValue < 1.0 ? 1 : acsmComplexityValue.intValue() ;
 	}
 	
@@ -129,20 +131,24 @@ public @Data class GDPRAssessor {
 				result.add(enumItem.name());
 			}
 		}
-		for (CountryEnum enumItem : message.getContractorLocations()) {
-			if (enumItem.isEUMemberCountry()) {
-				result.add(enumItem.name());
-			}
+		if (message.getContractorCount() > 0) {
+        		for (CountryEnum enumItem : message.getContractorLocations()) {
+        			if (enumItem.isEUMemberCountry()) {
+        				result.add(enumItem.name());
+        			}
+        		}
 		}
 		for (CountryEnum enumItem : message.getServicedCountries()) {
 			if (enumItem.isEUMemberCountry()) {
 				result.add(enumItem.name());
 			}
 		}
-		for (CountryEnum enumItem : message.getIaasProviderLocations()) {
-			if (enumItem.isEUMemberCountry()) {
-				result.add(enumItem.name());
-			}
+		if (message.getIaasProviderCount() > 0) {
+        		for (CountryEnum enumItem : message.getIaasProviderLocations()) {
+        			if (enumItem.isEUMemberCountry()) {
+        				result.add(enumItem.name());
+        			}
+        		}
 		}
 		
 		return result;

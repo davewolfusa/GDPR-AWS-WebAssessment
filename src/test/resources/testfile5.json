@@ -1,0 +1,16 @@
+{ "requestor": 
+  { 
+    "firstName": "David", "lastName": "Wolf", "title": "Secure DevOps Consultant", 
+    "email": "dave.wolf@gmail.com", "phone": "3039569106", "submissionDate": 1519338486339, 
+    "companyName": "MetaGeek, Inc.", "companyAddress": "2356 Clermont St. #2300, Denver, CO 80207-3135 USA" 
+  }, 
+  "assessmentInfo": 
+  { 
+    "hqLocation": "UNITED_STATES", "officeCount": 1, "officeLocations": [ "UNITED_STATES" ], 
+    "employeeCount": 1, "employeeLocations": [ "UNITED_STATES" ], 
+    "contractorCount": 0, "contractorLocations": null, "servicedCountries": [ "UNITED_STATES" ], 
+    "productTypeCount": 4, "customerCount": 1, "iaasProviderCount": 1, 
+    "iaasProviders": [ "AMAZON_WEB_SERVICES" ], "iaasProviderLocations": [ "UNITED_STATES" ], 
+    "isPrivacyShieldCertified": false, "certifications": [ "NONE" ], "dataClassificationLevels": 1 
+  } 
+}
