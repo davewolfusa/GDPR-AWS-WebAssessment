@@ -39,13 +39,15 @@ public class GDPRAssessorTest {
 
 	@Test
 	public void testComputeComplexityValue4() throws Exception {
-		byte[] jsonData = Files.readAllBytes(this.getFilePath("testFile4.json"));
+		Path filePath = this.getFilePath("testFile4.json");
+		byte[] jsonData = Files.readAllBytes(filePath);
 		testFunction(jsonData);
 	}
 
 	@Test
 	public void testComputeComplexityValue5() throws Exception {
-		byte[] jsonData = Files.readAllBytes(this.getFilePath("testFile5.json"));
+		Path filePath = this.getFilePath("testFile5.json");
+		byte[] jsonData = Files.readAllBytes(filePath);
 		testFunction(jsonData);
 	}
 	
@@ -71,6 +73,7 @@ public class GDPRAssessorTest {
 	
 	private Path getFilePath(String fileName) {
 		File file = new File(classLoader.getResource(fileName).getFile());
+		System.out.println(file.getAbsolutePath());
 		return file.toPath();
 	}
 }
