@@ -19,7 +19,9 @@ public class GDPRAssessorTest {
 
 	@Before
 	public void setUp() throws Exception {
-		testDirectory = System.getProperty("testOutputDirectory");
+		testDirectory = 
+			System.getProperty("basedir") +
+			    "/src/test/resources/";
 		if (testDirectory == null) {
 			testDirectory = "src/test/resources/";
 		}
