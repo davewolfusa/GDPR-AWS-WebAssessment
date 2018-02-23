@@ -15,43 +15,47 @@ import com.americancsm.gdpr.webassess.model.GDPRAssessmentRequest;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 public class GDPRAssessorTest {
-	private String testDirectory = "src/test/resources/";
+	private String testDirectory = "src/test/resources";
 
+	/*
 	@Before
 	public void setUp() throws Exception {
+		testDirectory = 
+			System.getProperty("testResourcesDirectory");
 	}
+	*/
 
 	@Test
 	public void testComputeComplexityValue1() throws Exception {
-	    String testFilePath = testDirectory + "testFile1.json";
+	    String testFilePath = testDirectory + "/testFile1.json";
 		byte[] jsonData = Files.readAllBytes(Paths.get(testFilePath));
 		testFunction(jsonData);
 	}
 
 	@Test
 	public void testComputeComplexityValue2() throws Exception {
-		String testFilePath = testDirectory + "testFile2.json";
+		String testFilePath = testDirectory + "/testFile2.json";
 		byte[] jsonData = Files.readAllBytes(Paths.get(testFilePath));
 		testFunction(jsonData);
 	}
 
 	@Test
 	public void testComputeComplexityValue3() throws Exception {
-		String testFilePath = testDirectory + "testFile3.json";
+		String testFilePath = testDirectory + "/testFile3.json";
 		byte[] jsonData = Files.readAllBytes(Paths.get(testFilePath));
 		testFunction(jsonData);
 	}
 
 	@Test
 	public void testComputeComplexityValue4() throws Exception {
-		String testFilePath = testDirectory + "testFile4.json";
+		String testFilePath = testDirectory + "/testFile4.json";
 		byte[] jsonData = Files.readAllBytes(Paths.get(testFilePath));
 		testFunction(jsonData);
 	}
 
 	@Test
 	public void testComputeComplexityValue5() throws Exception {
-		String testFilePath = testDirectory + "testFile5.json";
+		String testFilePath = testDirectory + "/testFile5.json";
 		byte[] jsonData = Files.readAllBytes(Paths.get(testFilePath));
 		testFunction(jsonData);
 	}
