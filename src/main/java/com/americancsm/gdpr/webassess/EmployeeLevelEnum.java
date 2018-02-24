@@ -3,7 +3,7 @@ package com.americancsm.gdpr.webassess;
 public enum EmployeeLevelEnum {
 	ONE(1,100),
 	TWO(101,500),
-	THRE(501,1000),
+	THREE(501,1000),
 	FOUR(1001,5000),
 	FIVE(5001,10000),
 	SIX(10001,50000),
@@ -35,7 +35,7 @@ public enum EmployeeLevelEnum {
 	public static Double computeRanking(int employeeCount) {
 		EmployeeLevelEnum enumItem = EmployeeLevelEnum.create(employeeCount);
 		double width = enumItem.max - enumItem.min + 1.0d; 
-		double startingValue = (enumItem.ordinal() + 1.0d) * 10.0d;
+		double startingValue = (enumItem.ordinal() + 0.0d) * 10.0d;
 		Double relativePosition = ((employeeCount - enumItem.min)/width)*10.0d;
 		
 		return startingValue + relativePosition;

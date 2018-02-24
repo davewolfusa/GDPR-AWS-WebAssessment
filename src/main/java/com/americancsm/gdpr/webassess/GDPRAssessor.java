@@ -6,23 +6,18 @@ import static com.americancsm.gdpr.webassess.model.CertificationEnum.NONE;
 import java.util.HashSet;
 import java.util.Set;
 
-import com.amazonaws.services.lambda.runtime.LambdaLogger;
 import com.americancsm.gdpr.webassess.model.CertificationEnum;
 import com.americancsm.gdpr.webassess.model.CountryEnum;
 import com.americancsm.gdpr.webassess.model.GDPRAssessmentInfo;
-// import com.americancsm.gdpr.webassess.util.AWSContextLocator;
 
 import lombok.Data;
 
 public @Data class GDPRAssessor {
 	private static final int TOTAL_NUMBER_OF_EU_COUNTRIES = 27;
 	private GDPRAssessmentInfo message;
-	// private LambdaLogger logger;
 	
 	public GDPRAssessor(GDPRAssessmentInfo message) {
 		this.message = message;
-		// AWSContextLocator locator = AWSContextLocator.getInstance();
-		// logger = locator.getContext().getLogger();
 	}
 
 	public Integer computeComplexityValue() {
@@ -44,20 +39,14 @@ public @Data class GDPRAssessor {
 		
 		Double employeeCountRanking = 
 			EmployeeLevelEnum.computeRanking(message.getEmployeeCount() + message.getContractorCount()); 
-		// logger.log("Employee Count Ranking: " + employeeCountRanking + "\n");
 		
 		Integer officesInEUCountries     = numberOfEUCountries(message.getOfficeLocations());
-		// logger.log("EU Offices: " + officesInEUCountries + "\n");
 		Integer employeesInEUCountries   = numberOfEUCountries(message.getEmployeeLocations());
-		// logger.log("EU Employees: " + employeesInEUCountries + "\n");
 		Integer contractorsInEUCountries = 
 				message.getContractorCount() > 0 ? numberOfEUCountries(message.getContractorLocations()) : 0;
-		// logger.log("EU Contractors: " + contractorsInEUCountries + "\n");
         	Integer servicedEUCountries      = numberOfEUCountries(message.getServicedCountries());
-		// logger.log("EU serviced countries: " + servicedEUCountries + "\n");
         	Integer iaasEUCountries          = 
         			message.getIaasProviderCount() > 0 ? numberOfEUCountries(message.getIaasProviderLocations()) : 0;
-		// logger.log("EU IAAS Provider countries: " + iaasEUCountries + "\n");
 		
 		Set<String> uniqueEUCountries = getSetOfEUCountries(message);
         	
@@ -67,56 +56,50 @@ public @Data class GDPRAssessor {
 				(contractorsInEUCountries > 0 ? 1 : 0) +
 				(servicedEUCountries > 0 ? 1 : 0) +
 				(iaasEUCountries > 0 ? 1 : 0);
-		// logger.log("EU countries weight: " + countriesWeight + "\n");
-		/*
-		Double totalEUCountries = 
-		    			(Double) ((
-            		    		officesInEUCountries +
-            		    		employeesInEUCountries +
-            		    		contractorsInEUCountries +
-            		    		servicedEUCountries +
-            		    		iaasEUCountries
-            		    	) * 1.0d);
-         */
-		// logger.log("Total EU countries: " + totalEUCountries + "\n");
 		
 		Double percentOfEUCountries =
 		    countriesWeight > 0 ? 
 		    	  ( ((double)uniqueEUCountries.size()) / ((double) TOTAL_NUMBER_OF_EU_COUNTRIES ))
 		    	  : 0.0d;
-		// logger.log("Percent of EU countries: " + percentOfEUCountries + "\n");
 		
 		Double productCountRanking = 
 			ProductLevelEnum.computeRanking(this.message.getProductTypeCount());
-		// logger.log("Product Type Count Ranking: " + productCountRanking + "\n");
 		
 		Double customerCountRanking = 
 			CustomerLevelEnum.computeRanking(this.message.getCustomerCount());
-		// logger.log("Customer Count Ranking: " + customerCountRanking + "\n");
 		
-		Double acsmComplexityValue = Math.ceil(
-			// Apply primary rankings
-			(Double) (
-				(
-        				(employeeCountRanking * 2.0d) +
-        				(productCountRanking  * 1.00) +
-        				(customerCountRanking * 4.0d) 
-				) / 7
-			)
-			* (message.getIsPrivacyShieldCertified() ? .9d : 1.0d)
-			* (isISOPresent ? .8d : 1.0d)
-			);
-		acsmComplexityValue += (100.0d - acsmComplexityValue) * percentOfEUCountries;
-		acsmComplexityValue += (100.0d - acsmComplexityValue) * countriesWeight * 0.03d;
-		if (certificationCount > 0) {
-			acsmComplexityValue -= acsmComplexityValue * message.getCertifications().length * .05d;
+		Double acsmComplexityValue = 0d;
+		
+		if (percentOfEUCountries > 0) {
+        		acsmComplexityValue = Math.ceil(
+        			// Apply primary rankings
+        			(Double) 
+        			    percentOfEUCountries == 0d ?  0d : (
+        				(
+                			(productCountRanking  * 1d) +
+                			(employeeCountRanking * 2d) +
+                			(customerCountRanking * 2.5d) 
+        				) / 5.5
+        				* (message.getIsPrivacyShieldCertified() ? .9d : 1.0d)
+        			    * (isISOPresent ? .8d : 1.0d)
+        			)
+        		);
+        		acsmComplexityValue += (100.0d - acsmComplexityValue) * percentOfEUCountries;
+        		acsmComplexityValue += (100.0d - acsmComplexityValue) * countriesWeight * 0.05d;
+        		acsmComplexityValue += (100.0d - acsmComplexityValue) * message.getIaasProviderCount() * 
+        				((message.getIaasProviderCount() > 1 ?.05d : 0.0d) + (message.getIaasProviderCount() - 1) * 0.25d);
+        		if (certificationCount > 0) {
+        			acsmComplexityValue -= acsmComplexityValue * message.getCertifications().length * .05d;
+        		}
+        		acsmComplexityValue -= acsmComplexityValue * message.getDataClassificationLevels() * .05d;
+        		if (acsmComplexityValue > 100d) {
+        			acsmComplexityValue = 100d;
+        		}
+		} else {
+			acsmComplexityValue = 1d;
 		}
-		acsmComplexityValue -= acsmComplexityValue * message.getDataClassificationLevels() * .02d;
-		acsmComplexityValue += (100.0d - acsmComplexityValue) * message.getIaasProviderCount() * 
-				((message.getIaasProviderCount() > 1 ?.05d : 0.0d) + 0.02d);
 		
-		// logger.log("ACSM Complexity Value: " + acsmComplexityValue.intValue() + "\n");
-		return acsmComplexityValue < 1.0 ? 1 : acsmComplexityValue.intValue() ;
+		return acsmComplexityValue.intValue() ;
 	}
 	
 	private Set<String> getSetOfEUCountries(GDPRAssessmentInfo message) {

@@ -106,6 +106,8 @@
 
 	<build>
 		<plugins>
+
+			<!-- Maven Compiler Plugin -->
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-compiler-plugin</artifactId>
@@ -117,6 +119,37 @@
 					<forceJavacCompilerUse>true</forceJavacCompilerUse>
 				</configuration>
 			</plugin>
+
+			<!-- Maven Surefire Plugin -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-surefire-plugin</artifactId>
+				<version>2.20.1</version>
+				<configuration>
+				    <parallel>both</parallel>
+                    <threadCount>10</threadCount>
+                    <forkMode>once</forkMode>
+				    <excludes>
+				        <exclude>**/*IT.java</exclude>
+				    </excludes>
+					<systemProperties>
+						<property>
+							<name>basedir</name>
+							<value>${project.basedir}</value>
+						</property>
+						<property>
+							<name>testOutputDirectory</name>
+							<value>${project.build.testOutputDirectory}</value>
+						</property>
+						<property>
+							<name>projectArtifactId</name>
+							<value>${project.artifactId}</value>
+						</property>
+					</systemProperties>
+				</configuration>
+			</plugin>
+
+			<!-- Maven Shade Plugin -->
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-shade-plugin</artifactId>
@@ -177,34 +210,6 @@
 						</goals>
 					</execution>
 				</executions>
-			</plugin>
-
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-surefire-plugin</artifactId>
-				<version>2.20.1</version>
-				<configuration>
-				    <parallel>both</parallel>
-                    <threadCount>10</threadCount>
-                    <forkMode>once</forkMode>
-				    <excludes>
-				        <exclude>**/*IT.java</exclude>
-				    </excludes>
-					<systemProperties>
-						<property>
-							<name>basedir</name>
-							<value>${project.basedir}</value>
-						</property>
-						<property>
-							<name>testOutputDirectory</name>
-							<value>${project.build.testOutputDirectory}</value>
-						</property>
-						<property>
-							<name>projectArtifactId</name>
-							<value>${project.artifactId}</value>
-						</property>
-					</systemProperties>
-				</configuration>
 			</plugin>
 
 		</plugins>

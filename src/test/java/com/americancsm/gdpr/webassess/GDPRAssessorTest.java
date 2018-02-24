@@ -9,7 +9,6 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 
-import org.junit.Before;
 import org.junit.Test;
 
 import com.americancsm.gdpr.webassess.model.GDPRAssessmentRequest;
@@ -73,7 +72,6 @@ public class GDPRAssessorTest {
 	
 	private Path getFilePath(String fileName) {
 		File file = new File(classLoader.getResource(fileName).getFile());
-		System.out.println(file.getAbsolutePath());
 		return file.toPath();
 	}
 }

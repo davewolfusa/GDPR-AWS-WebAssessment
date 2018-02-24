@@ -17,6 +17,32 @@
         </configuration>
       </plugin>
       <plugin>
+        <artifactId>maven-surefire-plugin</artifactId>
+        <version>2.20.1</version>
+        <configuration>
+          <parallel>both</parallel>
+          <threadCount>10</threadCount>
+          <forkMode>once</forkMode>
+          <excludes>
+            <exclude>**/*IT.java</exclude>
+          </excludes>
+          <systemProperties>
+            <property>
+              <name>basedir</name>
+              <value>${project.basedir}</value>
+            </property>
+            <property>
+              <name>testOutputDirectory</name>
+              <value>${project.build.testOutputDirectory}</value>
+            </property>
+            <property>
+              <name>projectArtifactId</name>
+              <value>${project.artifactId}</value>
+            </property>
+          </systemProperties>
+        </configuration>
+      </plugin>
+      <plugin>
         <artifactId>maven-shade-plugin</artifactId>
         <version>3.0.0</version>
         <executions>
@@ -69,28 +95,6 @@
           <failBuildOnCVSS>8</failBuildOnCVSS>
           <skipProvidedScope>true</skipProvidedScope>
           <skipRuntimeScope>true</skipRuntimeScope>
-        </configuration>
-      </plugin>
-      <plugin>
-        <artifactId>maven-surefire-plugin</artifactId>
-        <version>2.20.1</version>
-        <configuration>
-          <parallel>both</parallel>
-          <threadCount>10</threadCount>
-          <forkMode>once</forkMode>
-          <excludes>
-            <exclude>**/*IT.java</exclude>
-          </excludes>
-          <systemProperties>
-            <property>
-              <name>testOutputDirectory</name>
-              <value>${project.build.testOutputDirectory}</value>
-            </property>
-            <property>
-              <name>projectArtifactId</name>
-              <value>${project.artifactId}</value>
-            </property>
-          </systemProperties>
         </configuration>
       </plugin>
     </plugins>

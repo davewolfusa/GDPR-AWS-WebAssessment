@@ -3,7 +3,7 @@ package com.americancsm.gdpr.webassess;
 public enum CustomerLevelEnum {
 	ONE(1,100),
 	TWO(101,500),
-	THRE(501,1000),
+	THREE(501,1000),
 	FOUR(1001,5000),
 	FIVE(5001,10000),
 	SIX(10001,20000),
@@ -37,7 +37,7 @@ public enum CustomerLevelEnum {
 	public static Double computeRanking(int customerCount) {
 		CustomerLevelEnum enumItem = CustomerLevelEnum.create(customerCount);
 		double width = enumItem.max - enumItem.min + 1.0d; 
-		double startingValue = (enumItem.ordinal() + 1d) * 10d;
+		double startingValue = (enumItem.ordinal() + 0d) * 10d;
 		Double relativePosition = ((customerCount - enumItem.min)/width)*10d;
 		
 		return startingValue + relativePosition;
