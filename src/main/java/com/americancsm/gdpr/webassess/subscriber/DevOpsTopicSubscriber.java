@@ -6,7 +6,6 @@ import com.amazonaws.services.sns.AmazonSNS;
 import com.amazonaws.services.sns.AmazonSNSClientBuilder;
 import com.amazonaws.services.sns.model.PublishRequest;
 import com.amazonaws.services.sns.model.PublishResult;
-import com.americancsm.gdpr.webassess.model.GDPRAssessmentRequest;
 
 public class DevOpsTopicSubscriber extends AbstractSubscriber<ObserverResult<String>,String> 
 	implements Observer<ObserverResult<String>,String> {
@@ -47,8 +46,8 @@ public class DevOpsTopicSubscriber extends AbstractSubscriber<ObserverResult<Str
 		
 		super.initialize();
 		
-		topicARN  = System.getenv(DEVOPS_TOPIC_ARN);
-		if (this.topicARN == null) {
+		devOpsTopicARN  = System.getenv(DEVOPS_TOPIC_ARN);
+		if (this.devOpsTopicARN == null) {
 			throw new IllegalStateException("Unable to get " + DEVOPS_TOPIC_ARN + " from the environment!");
 		}
 				
