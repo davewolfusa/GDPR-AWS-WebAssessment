@@ -70,7 +70,9 @@ public class LambdaFunctionHandler implements RequestHandler<GDPRAssessmentReque
 		if (isValid) {
 			// Compute Complexity Value
 			GDPRAssessor assessor = new GDPRAssessor(assessmentRequest.getAssessmentInfo());
-			assessmentRequest.getAssessmentInfo().setAcsmComplexityValue(assessor.computeComplexityValue());
+			Integer acsmComplexityScore = assessor.computeComplexityValue();
+			LOGGER.log("ACSM Complexity Score: " + acsmComplexityScore + "\n");
+			assessmentRequest.getAssessmentInfo().setAcsmComplexityValue(acsmComplexityScore);
 			
 			// Publish to Subscribers (S3 & Topic)
 			publisher.setMessage(assessmentRequest);

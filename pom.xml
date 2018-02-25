@@ -202,6 +202,10 @@
 					<failBuildOnCVSS>8</failBuildOnCVSS>
 					<skipProvidedScope>true</skipProvidedScope>
 					<skipRuntimeScope>true</skipRuntimeScope>
+					<failBuildOnCVSS>6</failBuildOnCVSS>
+					<suppressionFiles>
+                        <suppressionFile>project-suppression.xml</suppressionFile>
+                    </suppressionFiles>
 				</configuration>
 				<executions>
 					<execution>
