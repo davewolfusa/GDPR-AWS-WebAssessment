@@ -97,7 +97,7 @@
 			<dependency>
 				<groupId>com.amazonaws</groupId>
 				<artifactId>aws-java-sdk-bom</artifactId>
-				<version>1.11.241</version>
+				<version>1.11.286</version>
 				<type>pom</type>
 				<scope>import</scope>
 			</dependency>
@@ -200,9 +200,10 @@
 				<version>3.1.1</version>
 				<configuration>
 					<failBuildOnCVSS>8</failBuildOnCVSS>
+					<!-- 
 					<skipProvidedScope>true</skipProvidedScope>
 					<skipRuntimeScope>true</skipRuntimeScope>
-					<failBuildOnCVSS>6</failBuildOnCVSS>
+					 -->
 					<suppressionFiles>
                         <suppressionFile>project-suppression.xml</suppressionFile>
                     </suppressionFiles>
